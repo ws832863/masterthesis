@@ -35,32 +35,32 @@ Firstly, $v(x)$ can be estimated by some nonparametric regression approach consi
 
 \begin{equation}
 \label{equ3.4}
- X_{i} = v(t_{i} )+ v(t_{i})\xi_{i}.
+ X_{t} = v(x_{t} )+ v(x_{t})\xi_{t}.
 \end{equation}
 
 If the constant mean $\mu$ is replaced by a sooth function g, we can get a nonparametric regression with scale change and dependence
 
 \begin{equation}
 \label{equ3.5}
-Y_i= g(t_i)+\sigma(t_i)\varepsilon_i,
+Y_t= g(x_t)+\sigma(x_t)\varepsilon_t,
 \end{equation}
 
-where ${\varepsilon_i}$ is a zero mean stationary process.
+where ${\varepsilon_t}$ is a zero mean stationary process.
 
-From the above discuss we can see that, model \ref{equ3.4} is a special case of the model \ref{equ3.5}; and model \ref{equ3.5} can be also written as $r_i= \sigma(t_i)\varepsilon_i$ for  $ r_{i}=Y_{i}-\mu$.
+From the above discuss we can see that, model \ref{equ3.4} is a special case of the model \ref{equ3.5}; and model \ref{equ3.5} can be also written as $r_t= \sigma(x_t)\varepsilon_t$ for  $ r_{t}=Y_{t}-\mu$.
 
-Let $\hat{\mu }=\bar{y}$ and $\hat{x}_{i} = \hat{z}_{i}^{2}$, in which $\hat{z_{i}}$ is then defined by $\hat{z}_{i}=y_{i}-\bar{y}$. A Nadaraya-Watson kernel regression which has been proposed by Nadaraya (1964) and Watson (1964), is defined by
+Let $\hat{\mu }=\bar{y}$ and $\hat{x}_{t} = \hat{r}_{t}^{2}$, in which $\hat{r_{t}}$ is then defined by $\hat{r}_{t}=y_{t}-\bar{y}$. A Nadaraya-Watson kernel regression which has been proposed by Nadaraya (1964) and Watson (1964), is defined by
 
 \begin{equation}
-\hat{v}(t)=\frac{\sum_{i=1}^{n}K(\frac{t_i-t}{b})\hat{x}_i}{\sum_{i=1}^{n}K(\frac{t_i-t}{b})}=:\sum_{i=1}^nW_i\hat{x}_i,
+\hat{v}(x)=\frac{\sum_{t=1}^{n}K(\frac{x_t-x}{b})\hat{r}_t}{\sum_{t=1}^{n}K(\frac{x_t-x}{b})}=:\sum_{t=1}^nW_t\hat{r}_t,
 \end{equation}
 
-where $W_i$ is the weighting function  $W_i= \frac{K(\frac{t_i-t}{b})}{\sum_{i=1}^{n}K(\frac{t_i-t}{b})} $; $K(u)$ is a second order kernel function with compact support [-1,1]; and b is the bandwidth, the size of the weights \cite{Fan1993}. 
+where $W_t$ is the weighting function  $W_t= \frac{K(\frac{x_t-x}{b})}{\sum_{t=1}^{n}K(\frac{x_t-x}{b})} $; $K(u)$ is a second order kernel function with compact support [-1,1]; and b is the bandwidth, the size of the weights \cite{Fan1993}. 
 
-According to the above assumptions, the estimator $\varepsilon_{i}$  is now replaced by the standardized residuals
+According to the above assumptions, the estimator $\varepsilon_{t}$  is now replaced by the standardized residuals
 
 \begin{equation}
-\hat{\varepsilon_i }=\hat{z_i}/\hat{\sigma }(t_i)=(y_i-\bar{y})/\hat{\sigma}(t_i) 
+\hat{\varepsilon_t }=\hat{r_t}/\hat{\sigma }(x_t)=(y_t-\bar{y})/\hat{\sigma}(x_t) 
 \end{equation}
 
 Then the estimator of parametric vector $\theta$ can be obtained by the standard maximum likelihood method, which has been introduced in section 2.
