@@ -15,23 +15,23 @@ Semi-parametric GARCH model combines a smooth scale function with the standard G
 
 \begin{equation}
 \label{eq:3.1}
-Y_{i} = \mu + \sigma(t_{i})\varepsilon_{i}
+Y_{t} = \mu + \sigma(x_{t})\varepsilon_{t}
 \end{equation}
 
-where $\mu$ is an unknown constant; $t_{i}=t/n; \sigma(t)>0$ is the nonparametric component, a smooth, bounded scale function; and $\lbrace\varepsilon_{i}\rbrace$ is the parametric component, which is assumed to follow a GARCH(p, q) process.
+where $\mu$ is an unknown constant; $x_{t}=t/n; \sigma(x)>0$ is the nonparametric component, a smooth, bounded scale function; and $\lbrace\varepsilon_{t}\rbrace$ is the parametric component, which is assumed to follow a GARCH(p, q) process.
 
 \begin{equation}
 \label{equ3.3}
-h_{i}=\omega + \sum_{k=1}^{p}\alpha_{k}\varepsilon_{t-k}^{2} + \sum_{j=1}^{q}\beta_{j}h_{t-j},
+h_{t}=\omega + \sum_{i=1}^{p}\alpha_{i}\varepsilon_{t-i}^{2} + \sum_{j=1}^{q}\beta_{j}h_{t-j},
 \end{equation}
 
-where $h_i^{1/2}$ is the conditional standard deviations of the standardized process $\varepsilon_i$; $ \omega>0;  \alpha_{1}, \ldots ,\alpha_{p}\geq0$ and $\beta_{1},\ldots,\beta_{q}\geq0$.    To estimate the scale function, $E(\varepsilon_{i}^{8})<\infty$ is assumed to ensure \ref{equ3.3} strictly stationary, which implies in particular that $\sum_{k=1}^p\alpha_k+\sum_{j=1}^q\beta_j<1$ \citep{Feng2004}.
+where $h_t^{1/2}$ is the conditional standard deviations of the standardized process $\varepsilon_t$; $ \omega>0;  \alpha_{1}, \ldots ,\alpha_{p}\geq0$ and $\beta_{1},\ldots,\beta_{q}\geq0$.    To estimate the scale function, $E(\varepsilon_{t}^{8})<\infty$ is assumed to ensure \ref{equ3.3} strictly stationary, which implies in particular that $\sum_{i=1}^p\alpha_i+\sum_{j=1}^q\beta_j<1$ \citep{Feng2004}.
 
 \subsection{Estimation of semi-parametric GARCH model}
 
-The estimation of semi-parametric GARCH model can combine the nonparametric estimation of the Y's local variance  $v(t)=\sigma^{2}(t)$,with parametric estimation of the unknown parameter vectors $\theta = (\alpha_{0},\alpha_{1},\ldots,\alpha_{p},\beta_{1},\ldots,\beta_{q})$.
+The estimation of semi-parametric GARCH model can combine the nonparametric estimation of the Y's local variance  $v(x)=\sigma^{2}(x)$,with parametric estimation of the unknown parameter vectors $\theta = (\alpha_{0},\alpha_{1},\ldots,\alpha_{p},\beta_{1},\ldots,\beta_{q})$.
 
-Firstly, $v(t)$ can be estimated by some nonparametric regression approach consistently without any parametric assumptions. In this paper the kernel estimation will be used to estimate $v(t)$. \ref{eq:3.1} needs to be transformed into a general nonparametric regression problem at first. Let $ r_{i}=Y_{i}-\mu$, $X_{i}=r_{i}^{2}$ and $\xi_{i}=\varepsilon_{i}^{2}-1 \geq -1$, which are zero mean stationary time series errors. Then the model \ref{eq:3.1} can be rewritten as 
+Firstly, $v(x)$ can be estimated by some nonparametric regression approach consistently without any parametric assumptions. In this paper the kernel estimation will be used to estimate $v(x)$. \ref{eq:3.1} needs to be transformed into a general nonparametric regression problem at first. Let $ r_{t}=Y_{t}-\mu$, $X_{t}=r_{t}^{2}$ and $\xi_{t}=\varepsilon_{t}^{2}-1 \geq -1$, which are zero mean stationary time series errors. Then the model \ref{eq:3.1} can be rewritten as 
 
 \begin{equation}
 \label{equ3.4}
@@ -188,7 +188,7 @@ According to the above discussions of semi-parametric GARCH and APARCH models, t
 \begin{equation}
 r_{t} = \sigma(x_{t})\varepsilon_{t},
 \end{equation}
-where $Y$ is the return process; $\sigma(x_{t})>0$ is the scale function; $x_{t}$  are the rescaled times; and  $\varepsilon_{t}$ are the standard residuals, which follows the parametric exponential GARCH model.
+where $r$ is the return process; $\sigma(x_{t})>0$ is the scale function; $x_{t}$  are the rescaled times; and  $\varepsilon_{t}$ are the standard residuals, which follows the parametric exponential GARCH model.
 
 \begin{equation}
 ln(h_{t}) = \omega + \sum_{i=1}^{p}\alpha_{i}g(\eta_{t-i})+ \sum_{j=1}^{q}\beta_{j}ln(h_{t-j}),
@@ -199,9 +199,9 @@ g(\eta_{t})\equiv\theta\eta_{t}+\gamma[|\eta_{t}|-E|\eta_{t}|].
 \end{equation}
 The assumptions of this parametric component approximate to the parametric exponential GARCH model \citep{Nelson1991}.
 \section{Semi-parametric CGARCH model}
-where $Y$ is the return process; $\sigma(t_{i})>0$ is the scale function; $t_{i}$  are the rescaled times; and  $\varepsilon_{t}$ are the standard residuals, The semi-parametric CGARCH model can written as
+where $r$ is the return process; $\sigma(x_{t})>0$ is the scale function; $x_{t}$  are the rescaled times; and  $\varepsilon_{t}$ are the standard residuals, The semi-parametric CGARCH model can written as
 \begin{equation}
-Y_{t} = \sigma(t_{i})\varepsilon_{i},
+r_{t} = \sigma(x_{t})\varepsilon_{t},
 \end{equation}
 
 where  $\varepsilon_{t}$ is assumed to follow the parametric component GARCH model,
