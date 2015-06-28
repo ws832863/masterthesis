@@ -75,51 +75,51 @@ The estimators of kernel regression function approximate the real value asymptot
 To calculate the bias, several assumptions must be satisfied:
  \begin{enumerate}
     \item $E(\varepsilon_{t}^{8})<\infty$ ensures the process strictly stationary, and $\eta \sim N(0,1)$\cite{Ling2002}
-    \item The second derivative of $v(t)$ exists and is continuous on $[0,1]$.
+    \item The second derivative of $v(x)$ exists and is continuous on $[0,1]$.
     \item The kernel $K(u)$ is a continuous function, which is symmetric around zero and defined in $[-1, 1]$.
     
     \item When the sample volume $n \rightarrow \infty $, the bandwidth $b \rightarrow 0 $ and $nb \rightarrow \infty $. Then both of the bias B and the variance V approaches zero.
   
 \end{enumerate}
 Define $R(K)= \int K^{2}(u)du$ and $I(K)=\int u^{2}K(u)du$ . Under these assumptions, the asymp-totic bias and the asymptotic variance can be obtained.
-The asymptotic bias B of $\hat{v}(t)$ is:
+The asymptotic bias B of $\hat{v}(x)$ is:
 
 \begin{equation}
 \label{equ3.6}
-B=E[\hat{v}(t)-v(t)] = \frac{I(K)v''(t)}{2}b^{2}+o(b^{2})).
+B=E[\hat{v}(x)-v(x)] = \frac{I(K)v''(x)}{2}b^{2}+o(b^{2})).
 \end{equation}
 The asymptotic variance V of $\hat{v}(t)$ can be expressed as:
 
 \begin{equation}
 \label{equ3.7}
-V=var[\hat{v}(t)]=R(K)\frac{v(t)}{nb}+o\frac{1}{nb}.
+V=var[\hat{v}(x)]=R(K)\frac{v(x)}{nb}+o\frac{1}{nb}.
 \end{equation}   
 
-From \ref{equ3.6} and \ref{equ3.7} we can see that, bias is of the order $b^{2}$ and the variance is of the order $1/(nb)$. The bias has the positive correlation with the bandwidth, whereas the variance has the negative correlation with the bandwidth. The higher the $v(t)$, the larger the variance; and the more complex the $v(t)$, the larger the bias.
+From \ref{equ3.6} and \ref{equ3.7} we can see that, bias is of the order $b^{2}$ and the variance is of the order $1/(nb)$. The bias has the positive correlation with the bandwidth, whereas the variance has the negative correlation with the bandwidth. The higher the $v(x)$, the larger the variance; and the more complex the $v(x)$, the larger the bias.
 Under the assumptions, the asymptotic MISE can be calculated by:
 \begin{equation}
-MISE = \int(B^{2}+V)dt=\frac{I^{2}(K)R(V''(t))}{4}b^{4} + \frac{R(K)}{nb} + o[max(b^{4},\frac{1}{nb})].
+MISE = \int(B^{2}+V)dt=\frac{I^{2}(K)R(V''(x))}{4}b^{4} + \frac{R(K)}{nb} + o[max(b^{4},\frac{1}{nb})].
 \end{equation}
 By minimizing the dominant part of the asymptotic MISE, the asymptotically optimal bandwidth of $\hat{v}$  is
 \begin{equation}
-b=(\frac{R(K)}{I^{2}(K)R(V''(t))})^{\frac{1}{5}}n^{-\frac{1}{5}}.
+b=(\frac{R(K)}{I^{2}(K)R(V''(x))})^{\frac{1}{5}}n^{-\frac{1}{5}}.
 \end{equation}
-When the bandwidth is of order $n^{-\frac{1}{5}}$  , we can get $\hat{v}(t)=v(t)[1+O_{p}(n^{-\frac{2}{5}})]$  and $MISE=O(n^{-\frac{4}{5}})$ \cite{Gasser1984} \cite{Fan1991}.
+When the bandwidth is of order $n^{-\frac{1}{5}}$  , we can get $\hat{v}(x)=v(x)[1+O_{p}(n^{-\frac{2}{5}})]$  and $MISE=O(n^{-\frac{4}{5}})$ \cite{Gasser1984} \cite{Fan1991}.
 
 \subsection{The selection of bandwidth}
-Applying the estimator $\hat{v}$  requires the specification of kernels and bandwidth. Optimal kernels have been obtained analytically. The selection of bandwidth becomes the most important problem when applying nonparametric regression estimators such as kernel estimators. The regression works well, only if the bandwidth is suitable. Because the kernel estimation uses the points around $t_{0}$  to estimate the scale function, a kernel regression is usually biased. The larger the bandwidth, the larger the square bias because further points from $t_{0}$ are used, but the smaller the variance because more ob-servations are used for estimation. The bandwidth should be optimized to balance the variance and bias. The optimal bandwidth is the one, which can minimize the mean squared error (MSE) or mean integrated squared error \cite{Gasser1991}. 
+Applying the estimator $\hat{v}$  requires the specification of kernels and bandwidth. Optimal kernels have been obtained analytically. The selection of bandwidth becomes the most important problem when applying nonparametric regression estimators such as kernel estimators. The regression works well, only if the bandwidth is suitable. Because the kernel estimation uses the points around $x_{0}$  to estimate the scale function, a kernel regression is usually biased. The larger the bandwidth, the larger the square bias because further points from $x_{0}$ are used, but the smaller the variance because more ob-servations are used for estimation. The bandwidth should be optimized to balance the variance and bias. The optimal bandwidth is the one, which can minimize the mean squared error (MSE) or mean integrated squared error \cite{Gasser1991}. 
 
 There are many methods available to optimize bandwidth, e.g. Cross-Validation (CV), Generalized CV (GCV), plug-in and etc. In this paper, CV and plug-in will be introduced in detail.
 
 \paragraph{Cross-Validation (CV)}
 
-The Cross-Validation method is also called “leave-one-out”.  This method estimates the MSE by leaving one observation out at each time point. The main idea of CV is that, the estimation of $v(t_{i})$ is without using $(t_{i},\hat{x_{i}})$  , rather assess the quality of the estimation with other observations. 
+The Cross-Validation method is also called “leave-one-out”.  This method estimates the MSE by leaving one observation out at each time point. The main idea of CV is that, the estimation of $v(x_{t})$ is without using $(x_{t},\hat{r_{t}})$  , rather assess the quality of the estimation with other observations. 
 
-Define the estimation errors by $r_{-i}=(t_{i},b)=\hat{x}_{i}-\hat{v}^{-i}(t_{i})$. The function to calculate CV is:
+Define the estimation errors by $\lambda_{-t}=(x_{t},b)=\hat{r}_{t}-\hat{v}^{-t}(x_{t})$. The function to calculate CV is:
 \begin{equation}
-CV(b) = \sum_{i=1+i_{0}}^{n-i_{0}}r_{-i}^{2}(t_{i},b)=\sum_{i=1+i_{0}}^{n-i_{0}}[\hat{x}_{i}-\hat{v}^{-i}(t_{i})]^{2},
+CV(b) = \sum_{t=1+t_{0}}^{n-t_{0}}\lambda_{-t}^{2}(x_{t},b)=\sum_{t=1+t_{0}}^{n-t_{0}}[\hat{r}_{t}-\hat{v}^{-t}(x_{t})]^{2},
 \end{equation}
-where $\hat{v}^{-i}(t_i)=\sum_{j=1,j\neq i}^{n}\frac{K(\frac{t_{j}-t_{i}}{b})\hat{x}_{j}}{\sum_{j=1,j \neq i}^{n}K(\frac{t_{j}-t_{i}}{b})}$ is the “leave-one-out’’ estimator of $v(t_{i})$.
+where $\hat{v}^{-t}(x_t)=\sum_{j=1,j\neq t}^{n}\frac{K(\frac{x_{j}-x_{t}}{b})\hat{r}_{j}}{\sum_{j=1,j \neq t}^{n}K(\frac{x_{j}-x_{t}}{b})}$ is the “leave-one-out’’ estimator of $v(x_{t})$.
 
 Let $0<h_{min}<h_{max}<1, \bigtriangleup h=(h_{max}-h_{min})/m$, where m is an integer. Then the optimal bandwidth can be obtained by calculating the value of CV at $h=h_{min}, h=h_{min} + \bigtriangleup h, h=h_{min} + 2\bigtriangleup h, \ldots, h=h_{max}$. The optimal bandwidth is the one, at which CV(b) is minimized \cite{Sarda1993}.
 
@@ -131,12 +131,12 @@ In this method, some adapted assumptions are required.
 
 
 \begin{enumerate}
-    \item The function $v(t)$ is strictly positive on [0,1] and exist at least continuous fourth moment.    
+    \item The function $v(x)$ is strictly positive on [0,1] and exist at least continuous fourth moment.    
     \item $v''$ is estimated with a symmetric fourth order kernel for estimating the second derivative with compacted sup-port [-1,1].
     \item The bandwidth b satisfied $b \rightarrow 0$  and $nb^{5} \rightarrow \infty $  as $n \rightarrow \infty$.
 \end{enumerate}
 
-Denote $c_{f}=f(0)$, where $f(\lambda)=(2\pi)^{-1}\sum_{k=-\infty}^{\infty}exp(ik\lambda)\gamma_{\varepsilon}(k)$ is the spectral density of $\varepsilon_{i}$  with $\gamma_{\varepsilon}(k)$ is the autocovariance function of $\varepsilon_{i}$ . Then the asymptotic optimal bandwidth can be rewritten as 
+Denote $c_{f}=f(0)$, where $f(\tau)=(2\pi)^{-1}\sum_{k=-\infty}^{\infty}exp(ik\tau)\gamma_{\varepsilon}(k)$ is the spectral density of $\varepsilon_{t}$  with $\gamma_{\varepsilon}(k)$ is the autocovariance function of $\varepsilon_{t}$ . Then the asymptotic optimal bandwidth can be rewritten as 
 
 \begin{equation}
 b_{A} =(2\pi c_{f} \frac{R(K)}{I^{2}(K)}\frac{I(v^{2})}{I((v'')^2)})^{\frac{1}{5}}n^{-\frac{1}{5}} = Cn^{-\frac{1}{5}},
@@ -145,14 +145,14 @@ b_{A} =(2\pi c_{f} \frac{R(K)}{I^{2}(K)}\frac{I(v^{2})}{I((v'')^2)})^{\frac{1}{5
 where
 
 \begin{equation}
-c_{f}=\frac{E(\varepsilon_{i}^{4})}{3\pi}\frac{(1-\sum_{j=1}^{q}\beta_{j})^{2}}{(1-\sum_{i=1}^{p}\alpha_{i}-\sum_{j=1}^{q}\beta_{j})^{2}}
+c_{f}=\frac{E(\varepsilon_{t}^{4})}{3\pi}\frac{(1-\sum_{j=1}^{q}\beta_{j})^{2}}{(1-\sum_{i=1}^{p}\alpha_{i}-\sum_{j=1}^{q}\beta_{j})^{2}}
 \end{equation}
  
-with the assumption, the functions $\phi(z)=1-\sum_{i=1}^{max(p,q)}\alpha_{i}z^{i}$ and $\varphi(z)=1-\sum_{j=1}^{max(p,q)}\beta_{j}z^{j}$ have no common roots. $\hat{E}(\varepsilon^{4}=\sum_{i=1}^{n}\hat{\varepsilon})_{i}^{4}/n$ is a nonparametric estimator of $\varepsilon_{i}^{4}$ \cite{Feng2004}.
+with the assumption, the functions $\phi(z)=1-\sum_{i=1}^{max(p,q)}\alpha_{i}z^{i}$ and $\varphi(z)=1-\sum_{j=1}^{max(p,q)}\beta_{j}z^{j}$ have no common roots. $\hat{E}(\varepsilon_t^{4})=\sum_{t=1}^{n}\hat{\varepsilon}_{t}^{4}/n$ is a nonparametric estimator of $\varepsilon_{t}^{4}$ \citep{Feng2004}.
 
 This method starts from the asymptotic optimal bandwidth $b_{0}= Cn^{-1/5}$ with C=0.5.
 
-Then follow j-th iteration process. In the j-th iteration, $\hat{v}$  and $\hat{\theta}$  should be calculated with the bandwidth $b_{j-1}$  at first. Step 2, calculate $\hat{E}(\varepsilon^{4})$ , where $\hat{E} (\varepsilon^{4}) = \sum_{i=1}^{n}\hat{\varepsilon}_{i}^{4}/n$  is a nonparametric estimator of $E(\varepsilon^{4})$ , and $\hat{I}(v)^{2}$  with   $\hat{I}(v)^{2} = \frac{1}{n}\sum_{i=n_{1}}^{n_{2}}\hat{v}(t_{i})^{2}$, where $n_{1}$  and $n_{2}$ denote the integer part of na and n(1-a) respecyively, in which [a, 1-a] is the compacted support of the mean integrated squared error (MISE). In this calculation, the selected bandwidth is $b_{\varepsilon,j}=b_{v,j}=b_{j-1}^{5/4}$ . Step 3, calculate $\hat{c}_{f}$  from $\hat{\theta}$  and $\hat{E}(\varepsilon^{4})$ . Step 4, calculate $\hat{I}((v'')^{2})$, where $\hat{v''}$  is a kernel estimator of   $v''$  with $\hat{I}((v'')^{2})= \frac{1}{n}\sum_{i=n_{1}}^{n_{2}}\hat{v}''(t_{i})^{2}$, in which $\hat{v}''$ is obtained by using the bandwidth $b_{d,j}=b_{j-1}^{5/7}$ . Step 5, improve $b_{j-1}$  by 
+Then follow j-th iteration process. In the j-th iteration, $\hat{v}$  and $\hat{\theta}$  should be calculated with the bandwidth $b_{j-1}$  at first. Step 2, calculate $\hat{E}(\varepsilon^{4})$ and $\hat{I}(v)^{2}$  with   $\hat{I}(v)^{2} = \frac{1}{n}\sum_{t=n_{1}}^{n_{2}}\hat{v}(x_{t})^{2}$, where $n_{1}$  and $n_{2}$ denote the integer part of na and n(1-a) respecyively, in which [a, 1-a] is the compacted support of the mean integrated squared error (MISE). In this calculation, the selected bandwidth is $b_{\varepsilon,j}=b_{v,j}=b_{j-1}^{5/4}$ . Step 3, calculate $\hat{c}_{f}$  from $\hat{\theta}$  and $\hat{E}(\varepsilon^{4})$ . Step 4, calculate $\hat{I}((v'')^{2})$, where $\hat{v''}$  is a kernel estimator of   $v''$  with $\hat{I}((v'')^{2})= \frac{1}{n}\sum_{t=n_{1}}^{n_{2}}\hat{v}''(x_{t})^{2}$, in which $\hat{v}''$ is obtained by using the bandwidth $b_{d,j}=b_{j-1}^{5/7}$ . Step 5, improve $b_{j-1}$  by 
 \[ b_{A} =(2\pi \hat{c}_{f} \frac{R(K)}{I^{2}(K)}\frac{\hat{I}(v^{2})}{\hat{I}((v'')^2)})^{\frac{1}{5}}n^{-\frac{1}{5}} \].
 
 Finally, increase j by one and repeat the second part until convergence is reached, where the condition $b_{j} - b_{j-1} <1/n$  is used as a criterion for the convergence of $\hat{b}$ ; or a given maximal number of iterations has been done, where the maximal number of iterations is put to be twenty. Put $\hat{b} = b_{j}$. The asymptotic performance of $\hat{b}$ is quantified by $(\hat{b}-b_{A})/b_{A}=O_{p}(n^{-2/7}+O_{p}(n^{-1/2})$.
