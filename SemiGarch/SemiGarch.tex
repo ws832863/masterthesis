@@ -55,7 +55,7 @@ Let $\hat{\mu }=\bar{y}$ and $\hat{x}_{t} = \hat{r}_{t}^{2}$, in which $\hat{r_{
 \hat{v}(x)=\frac{\sum_{t=1}^{n}K(\frac{x_t-x}{b})\hat{r}_t}{\sum_{t=1}^{n}K(\frac{x_t-x}{b})}=:\sum_{t=1}^nW_t\hat{r}_t,
 \end{equation}
 
-where $W_t$ is the weighting function  $W_t= \frac{K(\frac{x_t-x}{b})}{\sum_{t=1}^{n}K(\frac{x_t-x}{b})} $; $K(u)$ is a second order kernel function with compact support [-1,1]; and b is the bandwidth, the size of the weights \cite{Fan1993}. 
+where $W_t$ is the weighting function  $W_t= \frac{K(\frac{x_t-x}{b})}{\sum_{t=1}^{n}K(\frac{x_t-x}{b})} $; $K(u)$ is a second order kernel function with compact support [-1,1]; and b is the bandwidth, the size of the weights \citep{Fan1993}. 
 
 According to the above assumptions, the estimator $\varepsilon_{t}$  is now replaced by the standardized residuals
 
@@ -74,7 +74,7 @@ Then the estimator of parametric vector $\theta$ can be obtained by the standard
 The estimators of kernel regression function approximate the real value asymptotically. There also exists the bias between the real v and the estimators of kernel regression function $hat{v}$.
 To calculate the bias, several assumptions must be satisfied:
  \begin{enumerate}
-    \item $E(\varepsilon_{t}^{8})<\infty$ ensures the process strictly stationary, and $\eta \sim N(0,1)$\cite{Ling2002}
+    \item $E(\varepsilon_{t}^{8})<\infty$ ensures the process strictly stationary, and $\eta \sim N(0,1)$\citep{Ling2002}
     \item The second derivative of $v(x)$ exists and is continuous on $[0,1]$.
     \item The kernel $K(u)$ is a continuous function, which is symmetric around zero and defined in $[-1, 1]$.
     
@@ -104,10 +104,10 @@ By minimizing the dominant part of the asymptotic MISE, the asymptotically optim
 \begin{equation}
 b=(\frac{R(K)}{I^{2}(K)R(V''(x))})^{\frac{1}{5}}n^{-\frac{1}{5}}.
 \end{equation}
-When the bandwidth is of order $n^{-\frac{1}{5}}$  , we can get $\hat{v}(x)=v(x)[1+O_{p}(n^{-\frac{2}{5}})]$  and $MISE=O(n^{-\frac{4}{5}})$ \cite{Gasser1984} \cite{Fan1991}.
+When the bandwidth is of order $n^{-\frac{1}{5}}$  , we can get $\hat{v}(x)=v(x)[1+O_{p}(n^{-\frac{2}{5}})]$  and $MISE=O(n^{-\frac{4}{5}})$ \citep{Gasser1984,Fan1991}.
 
 \subsection{The selection of bandwidth}
-Applying the estimator $\hat{v}$  requires the specification of kernels and bandwidth. Optimal kernels have been obtained analytically. The selection of bandwidth becomes the most important problem when applying nonparametric regression estimators such as kernel estimators. The regression works well, only if the bandwidth is suitable. Because the kernel estimation uses the points around $x_{0}$  to estimate the scale function, a kernel regression is usually biased. The larger the bandwidth, the larger the square bias because further points from $x_{0}$ are used, but the smaller the variance because more ob-servations are used for estimation. The bandwidth should be optimized to balance the variance and bias. The optimal bandwidth is the one, which can minimize the mean squared error (MSE) or mean integrated squared error \cite{Gasser1991}. 
+Applying the estimator $\hat{v}$  requires the specification of kernels and bandwidth. Optimal kernels have been obtained analytically. The selection of bandwidth becomes the most important problem when applying nonparametric regression estimators such as kernel estimators. The regression works well, only if the bandwidth is suitable. Because the kernel estimation uses the points around $x_{0}$  to estimate the scale function, a kernel regression is usually biased. The larger the bandwidth, the larger the square bias because further points from $x_{0}$ are used, but the smaller the variance because more ob-servations are used for estimation. The bandwidth should be optimized to balance the variance and bias. The optimal bandwidth is the one, which can minimize the mean squared error (MSE) or mean integrated squared error \citep{Gasser1991}. 
 
 There are many methods available to optimize bandwidth, e.g. Cross-Validation (CV), Generalized CV (GCV), plug-in and etc. In this paper, CV and plug-in will be introduced in detail.
 
@@ -121,9 +121,9 @@ CV(b) = \sum_{t=1+t_{0}}^{n-t_{0}}\lambda_{-t}^{2}(x_{t},b)=\sum_{t=1+t_{0}}^{n-
 \end{equation}
 where $\hat{v}^{-t}(x_t)=\sum_{j=1,j\neq t}^{n}\frac{K(\frac{x_{j}-x_{t}}{b})\hat{r}_{j}}{\sum_{j=1,j \neq t}^{n}K(\frac{x_{j}-x_{t}}{b})}$ is the “leave-one-out’’ estimator of $v(x_{t})$.
 
-Let $0<h_{min}<h_{max}<1, \bigtriangleup h=(h_{max}-h_{min})/m$, where m is an integer. Then the optimal bandwidth can be obtained by calculating the value of CV at $h=h_{min}, h=h_{min} + \bigtriangleup h, h=h_{min} + 2\bigtriangleup h, \ldots, h=h_{max}$. The optimal bandwidth is the one, at which CV(b) is minimized \cite{Sarda1993}.
+Let $0<h_{min}<h_{max}<1, \bigtriangleup h=(h_{max}-h_{min})/m$, where m is an integer. Then the optimal bandwidth can be obtained by calculating the value of CV at $h=h_{min}, h=h_{min} + \bigtriangleup h, h=h_{min} + 2\bigtriangleup h, \ldots, h=h_{max}$. The optimal bandwidth is the one, at which CV(b) is minimized \citep{Sarda1993}.
 
-Cross- Validation is the most simple method for bandwidth selection and easy to understand. However, this method has large variability, which leads often a suboptimal non-parametric fit of the regression function. For example, the selected bandwidth by CV is often very large. Sometimes the resulted band width can be very small and wrong \cite{Altman1995}. 
+Cross- Validation is the most simple method for bandwidth selection and easy to understand. However, this method has large variability, which leads often a suboptimal non-parametric fit of the regression function. For example, the selected bandwidth by CV is often very large. Sometimes the resulted band width can be very small and wrong \citep{Altman1995}. 
 
 \paragraph{Plug-in bandwidth selected method}
 
@@ -157,12 +157,12 @@ Then follow j-th iteration process. In the j-th iteration, $\hat{v}$  and $\hat{
 
 Finally, increase j by one and repeat the second part until convergence is reached, where the condition $b_{j} - b_{j-1} <1/n$  is used as a criterion for the convergence of $\hat{b}$ ; or a given maximal number of iterations has been done, where the maximal number of iterations is put to be twenty. Put $\hat{b} = b_{j}$. The asymptotic performance of $\hat{b}$ is quantified by $(\hat{b}-b_{A})/b_{A}=O_{p}(n^{-2/7}+O_{p}(n^{-1/2})$.
 
-The plug-in estimator of the bandwidth has much lower variability than Cross- Validation for a broad variety of situations, including nonsmooth functions \cite{Gasser1991} \citep{Feng2004}.
+The plug-in estimator of the bandwidth has much lower variability than Cross- Validation for a broad variety of situations, including nonsmooth functions \citep{Gasser1991,Feng2004}.
 
 \section{Semi-parametric APARCH model}
 \subsection{Definition of semi-parametric model}
 
-Denoting $r_{t}= Y_t-\mu,t=1, \ldots,n$ is the logarithmic returns from an asset. According to the above discussion \ref{semiparaGarch} we can get the semi-parametric APARCH model, which is defined as follows:
+Denoting $r_{t}= Y_t-\mu,t=1, \ldots,n$ is the logarithmic returns from an asset. According to the above discussion in semi-parametric GARCH model, we can get the semi-parametric APARCH model, which is defined as follows:
 
 \begin{equation}
 r_{t} = \sigma(x_t)\varepsilon_{t},
@@ -213,8 +213,7 @@ h_{t}=q_{t}+\sum_{i=1}^{p}\alpha_{i}(\varepsilon_{t-i}^{2}-q_{t-i}) + \sum_{j=1}
 q_{t} = \omega + \rho q_{t-1}  +\varphi(\varepsilon_{t-1}^{2}-h_{t-1})
 \end{equation}
 
-In which $q_{t}$ is the permanent component of the conditional variance and $(h_{t-j} - q_{t-j})$  is the transitory component of the conditional variance; and the parametric specification’s assumption of stationary $0<(\alpha + \beta) < \rho <1, 0<\varphi<\beta, \alpha >0, \beta>0, \omega >0 $ should be satisfied \cite{0-19-829683-5} \citep{Ghalanos2014}.
-
+In which $q_{t}$ is the permanent component of the conditional variance and $(h_{t-j} - q_{t-j})$  is the transitory component of the conditional variance; and the parametric specification’s assumption of stationary $0<(\alpha + \beta) < \rho <1, 0<\varphi<\beta, \alpha >0, \beta>0, \omega >0 $ should be satisfied \citep{0-19-829683-5,Ghalanos2014}.
 
 \section{Conclusion}
 
