@@ -1,0 +1,23 @@
+\BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{2 Parametric models}{}% 2
+\BOOKMARK [1][-]{section.2.1}{2.1 Parametric GARCH model}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Definitions and basic properties}{section.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Estimation of GARCH model}{section.2.1}% 5
+\BOOKMARK [1][-]{section.2.2}{2.2 Parametric asymmetric power ARCH model}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{2.3 Parametric exponential GARCH model}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{2.4 Parametric component GARCH model}{chapter.2}% 8
+\BOOKMARK [0][-]{chapter.3}{3 Semi-parametric models}{}% 9
+\BOOKMARK [1][-]{section.3.1}{3.1 Semi-parametric GARCH model}{chapter.3}% 10
+\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Definition of semi- parametric GARCH model}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Estimation of semi-parametric GARCH model}{section.3.1}% 12
+\BOOKMARK [1][-]{section.3.2}{3.2 Asymptotic properties of }{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 The selection of bandwidth}{section.3.2}% 14
+\BOOKMARK [1][-]{section.3.3}{3.3 Semi-parametric APARCH model}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.3.1}{3.3.1 Definition of semi-parametric model}{section.3.3}% 16
+\BOOKMARK [2][-]{subsection.3.3.2}{3.3.2 Estimation of the semi-parametric APARCH model}{section.3.3}% 17
+\BOOKMARK [1][-]{section.3.4}{3.4 Semi-parametric EGARCH model}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.5}{3.5 Semi-parametric CGARCH model}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.6}{3.6 Conclusion}{chapter.3}% 20
+\BOOKMARK [0][-]{chapter.4}{4 Application}{}% 21
+\BOOKMARK [1][-]{section.4.1}{4.1 Tables and Figures Sample}{chapter.4}% 22
+\BOOKMARK [0][-]{appendix*.9}{Bibliography}{}% 23

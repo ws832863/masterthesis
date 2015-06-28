@@ -1,0 +1,278 @@
+\chapter{Application}
+
+
+
+
+
+\section{Tables and Figures Sample}
+\begin{table}[!h]
+ \small
+  \caption{Estimated coefficients of the APARCH - norm models for Sap index at open}
+  \label{tabValues}
+  \centering
+  \vspace{2ex}
+
+\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{ccc|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{APARCH(1,2)} &
+\multicolumn{2}{c|}{APARCH(2,1)} &
+\multicolumn{2}{c}{APARCH(2,2)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}\cline{8-9}
+
+& m{Coeff}  & s.e. & Coeff  & s.e. & Coeff   & s.e.  & Coeff  & s.e. \\
+\midrule
+\hline
+$\mu$  & 0.012459 & 0.013555 & 0.0124602 & 0.01356 & 0.011818 & 0.013940 & 0.012812 & 0.013729  \\
+\hline
+$\omega$  & 0.050010 & 0.006252 & 0.0500216 & 0.00687 & 0.054857 & 0.007283 & 0.097006 & 0.012668 \\
+\hline
+$\alpha_1$   & 0.076004 & 0.006336 & 0.0760131 & 0.00838 & 0.058272 & 0.011220 & 0.052233 & 0.009390 \\
+\hline
+$\alpha_2$   & & & & & 0.021706 & 0.011395 & 0.086890 & 0.008718\\
+\hline
+$\gamma_1$   &1&0.005733 & 0.99999999 &0.00572 &1 & 0.007523 & 1 & 0.009469\\
+\hline
+$\gamma_2$   & & & & &1 & 0.023297&1&0.011564\\
+\hline
+$\beta_1$  & 0.889283&0.009774&0.88929646& 0.09400 &0.879062&0.01205&0.098934&0.079439\\
+\hline
+$\beta_1$  &  & &0.00000001&0.08676& & &0.687549&0.073186\\
+\hline
+$\sigma_1$  & 1.017673&0.12041&1.01704876&0.1207&1.058141&0.127632&1.069076&0.128453\\
+\bottomrule
+\end{tabular}
+} %end of compress
+
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Selected bandwidths in all times (T) of ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \caption{Selected bandwidths in all times (T) of ALV}
+  \label{bandalv}
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+&T=09:30&T=11:00&T=12:30&T=14:00&T=15:30 \\
+\hline
+d=1	&0.09845639	& 0.0932583		&0.09118069	& 0.09206592  &	0.1017511\\
+\hline
+d=2	&0.1069041	& 0.1046261		&0.09312175	& 0.1070296	  &   0.08780973\\
+\bottomrule
+
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIC of all selected models for ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \caption{BIC of all selected models for ALV}
+  \label{bicalv}
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+			 &	T=09:30	&T=11:00&T=12:30&T=14:00&T=15:30\\
+\midrule
+\hline		 
+APARCH-t(1,1)&	2.7117	&2.7542	&2.7543	&2.7424	&2.7558 \\
+\hline
+APARCH-t(1,2)&	2.7151	&2.7577	&2.7577	&2.7458	&2.7593 \\
+\hline
+APARCH-t(2,1)&	2.7183	&2.7611	&2.7606	&2.7493	&2.7622 \\
+\hline
+APARCH-t(2,2)&	2.7218	&2.7645	&2.7641	&2.7524	&2.7656 \\
+\hline
+EGARCH-t(1,1)&	2.7108	&2.7528	&2.7524	&2.7396	&2.7545 \\
+\hline
+EGARCH-t(1,2)&	2.7142	&2.7562	&2.7558	&2.7430	&2.7580 \\
+\hline
+EGARCH-t(2,1)&	2.7176	&2.7597	&2.7579	&2.7458	&2.7609 \\
+\hline
+EGARCH-t(2,2)&	2.7204	&2.7631	&2.7614	&2.7492	&2.7646 \\
+\hline
+CGARCH-t(1,1)&	2.7283&	2.7671&	2.7690	&2.7592	&2.7715 \\
+\hline
+CGARCH-t(1,2)&	2.7309&	2.7706&	2.7725	&2.7627	&2.7750\\
+\hline
+CGARCH-t(2,1)&	2.7317&	2.7706&	2.7721	&2.7625	&2.7742\\
+\hline
+CGARCH-t(2,2)&	2.7342&	2.7740&	2.7756	&2.7660	&2.7777\\
+
+\bottomrule
+
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Estimated coefficients for ALV at 09:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \caption{Estimated coefficients for ALV at 09:30}
+  \label{coefalv930}
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c}
+\toprule
+	&	APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
+\midrule
+\hline
+$\eta$ & 0.030811&	0.023525	&0.046245\\
+\hline
+$\omega$ & 0.072068&	-0.008490	&0.004690\\
+\hline
+$\alpha_1$ & 0.065588&	-0.121483	&0.101784\\
+\hline
+$\beta_1$ & 0.841074&	0.928114	&0.835055\\
+\hline
+$\gamma_1$ & 0.720705&	0.172949	&   \_    \\
+\hline
+$\delta$ & 1.815581&		\_		&   \_    \\
+\hline
+$\eta_{11}$ & 	\_	&		\_		&0.995571\\
+\hline
+$\eta_{21}$ &	\_	&		\_		&0.000000\\
+\hline
+shape& 6.506437&	6.391486	&6.060666\\
+\bottomrule
+
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables and figures for ALV at 11:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \caption{Tables and figures for ALV at 11:00}
+  \label{coefalv1100}
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c}
+\toprule
+	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
+\midrule
+\hline
+$\eta$      &0.027935&	0.028150	&0.044178\\
+$\omega$    &0.086802&	-0.006788	&0.005350\\
+$\alpha_1$  &0.071707&	-0.120221	&0.091516\\
+$\beta_1$   &0.833555&	0.916025	&0.841185\\
+$\gamma_1$  &0.655442&	0.142740	&\_      \\
+$\delta$    &1.660996&	\_			&\_      \\
+$\eta_{11}$ &\_		&	\_			&0.994889\\
+$\eta_{21}$ &\_		&	\_			&0.000000\\
+shape		&7.303654&	7.136397	&6.944785\\
+\bottomrule
+
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables and figures for ALV at 12:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \caption{Tables and figures for ALV at 12:30}
+  \label{coefalv1230}
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c}
+\toprule
+	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
+\midrule
+\hline
+$\eta$      &0.024217	&0.020136	&0.043784\\
+$\omega$    &0.085778	&- 0.006793	&0.003444\\
+$\alpha_1$  &0.072438	&- 0.119206	&0.092086\\
+$\beta_1$   &0.839806	&0.917423	&0.833037\\
+$\gamma_1$  &0.743891	&0.143880	&\_      \\
+$\delta$    &1.468959	&\_			&\_      \\
+$\eta_{11}$ &\_			&\_			&0.996659\\
+$\eta_{21}$ &\_			&\_			&0.000000\\
+shape		&7.915656	&7.797071	&7.239844\\
+\bottomrule
+
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables and figures for ALV at 14:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \caption{Tables and figures for ALV at 14:00}
+  \label{coefalv1400}
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c}
+\toprule
+	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
+\midrule
+\hline
+$\eta$        &0.023732	&0.023156  	&0.042847 \\
+$\omega$      &0.095697	&-0.009432	&0.003821 \\
+$\alpha_1$    &0.088357	&-0.133916	&0.099963 \\
+$\beta_1$     &0.829213	&0.903927	&0.820708 \\
+$\gamma_1$    &0.820682	&0.164739	&\_       \\
+$\delta$      &1.147269	&\_			&\_       \\
+$\eta_{11}$   &\_		&\_			&0.996322 \\
+$\eta_{21}$   &\_		&\_			&0.000000 \\
+shape		  &7.431702	&7.412819	&6.838452 \\
+\bottomrule
+
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables and figures for ALV at 15:40
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \caption{Tables and figures for ALV at 15:40}
+  \label{coefalv1530}
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c}
+\toprule
+	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
+\midrule
+\hline
+$\eta$      &0.011890	&0.008475	&0.029493\\
+$\omega$    &0.070333	&-0.005184	&0.004089\\
+$\alpha_1$  &0.063602	&-0.110778	&0.083003\\
+$\beta_1$   &0.857014	&0.928123	&0.846245\\
+$\gamma_1$  &0.664906	&0.137833	&\_      \\
+$\delta$    &1.736078	&\_			&\_      \\
+$\eta_{11}$ &\_			&\_			&0.995975\\
+$\eta_{21}$ &\_			&\_			&0.000000\\
+shape		&8.127734	&7.980692	&7.692529\\
+\bottomrule
+
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

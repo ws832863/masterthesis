@@ -1,0 +1,107 @@
+% Please change only this file to adapt your document's structure.
+
+%--- list of figures ----------------------------------------------------------------------
+
+\ifthenelse{
+	\equal{\ausarbeitungsTyp}{\ausarbeitungsTypMaster}
+	\OR
+	\equal{\ausarbeitungsTyp}{\ausarbeitungsTypDiplom}
+	\OR
+	\equal{\ausarbeitungsTyp}{\ausarbeitungsTypBachelor}
+	}
+{
+	%then: add a list of figures
+	
+	%\clearemptydoublepage
+	\listoffigures
+}
+{
+	%else: do nothing
+}
+
+
+%--- list of tables ------------------------------------------------------------------------
+
+\ifthenelse{
+	\equal{\ausarbeitungsTyp}{\ausarbeitungsTypMaster}
+	\OR
+	\equal{\ausarbeitungsTyp}{\ausarbeitungsTypDiplom}
+	\OR
+	\equal{\ausarbeitungsTyp}{\ausarbeitungsTypBachelor}
+	}
+{
+	%then: add a list of tables
+	
+	%\clearemptydoublepage
+	\listoftables
+}
+{
+	%else: do nothing
+}
+
+%\setcounter{secnumdepth}{4} % create section numbers up to level 4, e.g.: 3.2.5.4, usually not necessary
+
+
+%######################## Chapter 1 ######################################################
+\cleardoublepage
+\pagenumbering{arabic} % use arabic page numbers again
+
+\input{Introduction/Introduction}
+
+%######################## Chapter 2 ######################################################
+%\clearemptydoublepage
+%\input{Fundamentals/Fundamentals}
+
+%######################## Chapter 2 ######################################################
+%\clearemptydoublepage
+\input{GarchModel/GarchModel}
+
+%######################## Chapter 3 ######################################################
+%\clearemptydoublepage
+\input{SemiGarch/SemiGarch}
+
+
+%######################## Chapter 4 ######################################################
+%\clearemptydoublepage
+\input{Application/Application}
+
+
+%######################## Chapter 5 ######################################################
+%\clearemptydoublepage
+%\input{...}
+
+
+%######################## Chapter 6 ######################################################
+%\clearemptydoublepage
+%\input{...}
+
+
+
+%######################## Chapter ? ######################################################
+%\clearemptydoublepage
+%\input{Summary/Summary}
+
+%######################## Appendix #########################################################
+%\clearemptydoublepage
+\appendix
+\addtocontents{toc}{\vspace{2mm}}
+%\addcontentsline{toc}{chapter}{Appendix}
+\addtocontents{toc}{\protect\contentsline {chapter}{Appendix}{}{appendix.A}}
+%\addtocontents{toc}{\vspace{-4mm}}
+%\input{Appendix/Appendix}
+
+%######################## Remainder ######################################################
+
+%--- bibliography -----------------------------------------------------------------------
+%\clearemptydoublepage
+%\bibliographystyle{myalphadin}
+%\bibliographystyle{alphadin}
+%\bibliographystyle{alpha}
+%\bibliographystyle{apalike}
+%\bibliographystyle{geralpha}
+%\bibliographystyle{dinat}
+\bibliography{myBib}
+
+%--- index ------------------------------------------------------------------------
+%\clearemptydoublepage
+%\printindex
