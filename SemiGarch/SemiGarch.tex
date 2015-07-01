@@ -31,7 +31,7 @@ where $h_t^{1/2}$ is the conditional standard deviations of the standardized pro
 
 The estimation of semi-parametric GARCH model can combine the nonparametric estimation of the Y's local variance  $v(x)=\sigma^{2}(x)$,with parametric estimation of the unknown parameter vectors $\theta = (\alpha_{0},\alpha_{1},\ldots,\alpha_{p},\beta_{1},\ldots,\beta_{q})$.
 
-Firstly, $v(x)$ can be estimated by some nonparametric regression approach consistently without any parametric assumptions. In this paper the kernel estimation will be used to estimate $v(x)$. \ref{eq:3.1} needs to be transformed into a general nonparametric regression problem at first. Let $ r_{t}=Y_{t}-\mu$, $X_{t}=r_{t}^{2}$ and $\xi_{t}=\varepsilon_{t}^{2}-1 \geq -1$, which are zero mean stationary time series errors. Then the model \ref{eq:3.1} can be rewritten as 
+At first, the scale function can be estimated by some nonparametric regression approach consistently without any parametric assumptions. In this model the kernel estimation will be used. \ref{eq:3.1} needs to be transformed into a general nonparametric regression problem at first. Let $ r_{t}=Y_{t}-\mu$, $X_{t}=r_{t}^{2}$ and $\xi_{t}=\varepsilon_{t}^{2}-1 \geq -1$, which are zero mean stationary time series errors. Then the model \ref{eq:3.1} can be rewritten as 
 
 \begin{equation}
 \label{equ3.4}
@@ -183,6 +183,30 @@ The semi-parametric model provides us a tool to decompose financial risk into an
 The reason to use semi-parametric APARCH model rather than the para-metric APARCH is that, if the scale function changes over time, the parametric component cannot be estimate consistently from the data, when the non-stationary scale function is not estimated. However, after estimating the nonstationary scale function an approximate stationary process for further analysis can be obtained. When the process follows a parametric model, the semi-parametric framework still works but with some loss of the efficiency \citep{FengYuanhua;Sun2013}.
 
 \subsection{ Estimation of the semi-parametric APARCH model}
+
+In this model the scale function $v(x)$ is estimated from $|r_t|^d$  with d=1, instead of ob-tained by taking the square root of $\hat{•v}^2(x)$ , which is estimated from $r_t^2$ . The reason of d=1 is that ensure the existence of the fourth order moment of $\varepsilon_{t}$. However, the scale function estimated from $|r_t|$ is an estimate of another function rather than v(x). Denote the estimated function g(x). Let $c_1=E(|\varepsilon_{t}|)\neq 1$ . Then we have  $g(x)=c_1v(x)$ and $v(x)=g(x)/c_1$ . As follows the local linear estimation is used to estimate the scale function.
+
+The local linear estimator  $\hat{g}(x)=\hat{a}_0$ at $0\leq x \leq 1$  can be obtained by minimizing
+
+\begin{equation}
+Q=\sum_{t=1}^{n}[|r_t|-a_0-a_1(x_t-x)]^2K(\frac{x_t-x}{b}).
+\end{equation}
+
+The optimal bandwidth for estimating $g(x)$ is different to that for estimating $v^2(x)$   from $r_t^2$ . In this method a fully data-driven algorithm is used, where the iterative plug-in idea, which is introduced above, adapted to selected b in the Q function with a starting bandwidth, which is selected by the cross-validation method.
+Sometimes, the local linear estimator may result in negative estimation, when sample size is small and a small bandwidth is selected. To ensure the non-negativity, the final estimator  $\hat{g}_f(x)$ is assumed to be $\hat{g}_f(x)=|\hat{g}(x,d)|$ . Let $\hat{\varepsilon}_{1,t}=r_t/\hat{g}_f(x)\approx c^{-1}\hat{\varepsilon}$  and $E(\varepsilon_t^4)$ is assumed to be finite. Then the consistent estimate of   is
+
+\begin{equation}
+\hat{c}_1=[\frac{1}{n}\sum_{t=1}^n\hat{\varepsilon}_{1,t}^2]^{-1/2}.
+\end{equation}
+
+Then the estimate of $v(x)$ can be obtained by
+
+\begin{equation}
+\hat{v}(x_t)=\hat{c}_1^{-1}\hat{g}_f(x_t).
+\end{equation}
+
+Then the estimate of $\varepsilon_t$ can defined as $\hat{\varepsilon}_t=r_t/\hat{v}(x_t)$ . The unknown parameters of a chosen APARCH model can be estimated by using the approximate conditional maxi-mal likelihood method. The method AIC or BIC can be used to select a suitable model \citep{}.
+
 \section{Semi-parametric EGARCH model}
 According to the above discussions of semi-parametric GARCH and APARCH models, the semi-parametric EGARCH model can be defined as follows:
 \begin{equation}
