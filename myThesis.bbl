@@ -20,6 +20,12 @@ Bougerol, P. and Picard, N. (1992).
   series}.
 \newblock {\em Journal of Econometrics}, 52(1-2):115--127.
 
+\bibitem[Consulting, 2013]{Consulting2013}
+Consulting, D. (2013).
+\newblock {Do I need to learn R ? Four good reasons to try the open source
+  platform for data analysis}.
+\newblock pages 1--12.
+
 \bibitem[Di and Gangopadhyay, 2011]{Di2011}
 Di, J. and Gangopadhyay, A. (2011).
 \newblock {On the efficiency of a semi-parametric GARCH model}.
@@ -98,10 +104,14 @@ Ghalanos, A. (2011).
 \newblock {Introduction to the rugarch package .}
 \newblock {\em October}, pages 1--36.
 
-\bibitem[Ghalanos, 2014]{Ghalanos2014}
-Ghalanos, A. (2014).
+\bibitem[Ghalanos, 2014a]{Ghalanos2014}
+Ghalanos, A. (2014a).
 \newblock {Introduction to the rugarch package .}
 \newblock {\em October}, pages 1--36.
+
+\bibitem[Ghalanos, 2014b]{Ghalanos2014a}
+Ghalanos, A. (2014b).
+\newblock {Package ` rugarch '}.
 
 \bibitem[Glosten et~al., 1993]{Glosten1993}
 Glosten, L.~R., Jagannathan, R., and Runkle, D.~E. (1993).
@@ -150,14 +160,33 @@ Nelson, D.~B. (1991).
 \newblock {Conditional Heteroskedasticity in Asset Returns: A New Approach}.
 \newblock {\em Econometrica}, 59(2):347--370.
 
+\bibitem[Pollard, 1998]{Pollard1998}
+Pollard, D. (1998).
+\newblock {How different is the t distribution from the normal ?}
+\newblock 7:101--106.
+
 \bibitem[Sarda, 1993]{Sarda1993}
 Sarda, P. (1993).
 \newblock {Smoothing parameter selection for smooth distribution functions}.
 \newblock {\em Journal of Statistical Planning and Inference}, 35(1):65--75.
 
+\bibitem[Schwarz, 1978]{Schwarz1978}
+Schwarz, G. (1978).
+\newblock {Estimating a Dimension of a Model}.
+
 \bibitem[Taylor, 1986]{stephen1986modelling}
 Taylor, S. (1986).
 \newblock {Modelling Financial Time Series}.
+
+\bibitem[Tsai et~al., 2012]{Tsai2012}
+Tsai, K.~T., Lih, J.~S., and Ko, J.~Y. (2012).
+\newblock {The overnight effect on the Taiwan stock market}.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  391(24):6497--6505.
+
+\bibitem[Wuertz and Chalabi, 2013]{Wuertz2013}
+Wuertz, D. and Chalabi, Y. (2013).
+\newblock {Rmetrics - Autoregressive Conditional Heteroskedastic Modelling}.
 
 \bibitem[{Xinzhong Xu and Stephen J.Taylor},
   1994]{XinzhongXuandStephenJ.Taylor1994}
@@ -170,5 +199,12 @@ Taylor, S. (1986).
 Zakoian, J.-M. (1994).
 \newblock {Threshold heteroskedastic models}.
 \newblock {\em Journal of economic dynamics and control}, 18:931--955.
+
+\bibitem[Zivot, 2005]{Zivot2005}
+Zivot, E. (2005).
+\newblock {Analysis of High Frequency Financial Data : Models , Methods and
+  Software . Part I : Descriptive Analysis of High Frequency Financial Data
+  with S-PLUS .}
+\newblock {\em Data Processing}, (2001):1--39.
 
 \end{thebibliography}

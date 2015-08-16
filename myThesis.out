@@ -19,5 +19,16 @@
 \BOOKMARK [1][-]{section.3.5}{3.5 Semi-parametric CGARCH model}{chapter.3}% 19
 \BOOKMARK [1][-]{section.3.6}{3.6 Conclusion}{chapter.3}% 20
 \BOOKMARK [0][-]{chapter.4}{4 Application}{}% 21
-\BOOKMARK [1][-]{section.4.1}{4.1 Tables and Figures Sample}{chapter.4}% 22
-\BOOKMARK [0][-]{appendix*.9}{Bibliography}{}% 23
+\BOOKMARK [1][-]{section.4.1}{4.1 Data and Methodology}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.2}{4.2 Semi-parametric application in Allianz}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Comparing the long-term risk}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Comparing the conditional behaviors}{section.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 Comparing the model at the given time points and with daily data}{section.4.2}% 26
+\BOOKMARK [1][-]{section.4.3}{4.3 Semi-parametric application in BMW}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.3.1}{4.3.1 Comparing the long-term risk}{section.4.3}% 28
+\BOOKMARK [2][-]{subsection.4.3.2}{4.3.2 Comparing the conditional behaviors}{section.4.3}% 29
+\BOOKMARK [2][-]{subsection.4.3.3}{4.3.3 Comparing the model at the given time points and with daily data}{section.4.3}% 30
+\BOOKMARK [1][-]{section.4.4}{4.4 Comparison of the empirical results of the two companies}{chapter.4}% 31
+\BOOKMARK [0][-]{chapter.5}{5 Conclusion}{}% 32
+\BOOKMARK [1][-]{section.5.1}{5.1 Data and Methodology}{chapter.5}% 33
+\BOOKMARK [0][-]{appendix*.9}{Bibliography}{}% 34
