@@ -135,11 +135,6 @@ Ling, S. and McAleer, M. (2002).
   asymmetric power GARCH (r, s) models}.
 \newblock {\em Econometric Theory}, 18(3):722--729.
 
-\bibitem[Malmsten, 2004]{Malmsten2004}
-Malmsten, H. (2004).
-\newblock {Evaluating exponential GARCH models}.
-\newblock {\em Finance}, pages 1--25.
-
 \bibitem[Mandelbrot, 1963]{Mandelbrot1963}
 Mandelbrot, B. (1963).
 \newblock {The Variation of Certain Speculative Prices}.
@@ -173,6 +168,11 @@ Sarda, P. (1993).
 \bibitem[Schwarz, 1978]{Schwarz1978}
 Schwarz, G. (1978).
 \newblock {Estimating a Dimension of a Model}.
+
+\bibitem[Schwert, 1990]{Schwert1990}
+Schwert, G.~W. (1990).
+\newblock {Stock Volatility and the Crash of '87}.
+\newblock {\em The Review of Financial Studies}, 3(1):77--102.
 
 \bibitem[Taylor, 1986]{stephen1986modelling}
 Taylor, S. (1986).

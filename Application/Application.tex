@@ -1,19 +1,55 @@
-\chapter{Application}
+\chapter{Empirical Example}
 
 
 \section{Data and Methodology}
 
 In this paper the semi-parametric models are applied to ten sets of high-frequency financial data, which are the stock price of the BMW and the Allianz with five given trading time points from January 2006 to September 2014, respectively. High-frequency financial data are observations of financial variables taken daily or at a finer time scale. Because the high- frequency financial data exhibits the features that has better consistency with the practice, it is more useful for studying the statistical properties and volatility in particular \citep{Zivot2005}.
 
-Usually, in the literatures the daily observations are applied, which are generally composed of the average value or the close price of a trading day. By using these data, the analysis is not accurate enough and the characteristics of the return at the different time points in the day cannot be shown. Therefore, to get the more exact results the observations at five fixed trading time points are selected in this work, i.e. 09:30, 11:00, 12:30, 14:00 and 15:30. In one data set, the neighbor observations are 24 hours apart, which means they are exact daily data. Because of the “overnight effect” the open price is not chosen. The “overnight effect” means that, the open price may be obviously different from the price at other time points. Normally, the government selects to release the important issues after the stock markets closed, in order to avoid that the investors cannot immediately reflect to the information. This may cause irrational fluctuations of the stock price at open. Furthermore, because of the time difference, the abroad information may also cause an abnormal fluctuation of open price \citep{Tsai2012}. Sometimes, in order to avoid this potential risk, the stockholders choose to change their equity of stock holding at the close time, which may result in the abnormal fluctuation of close price. Therefore, the close price is also excluded.  
+Usually, in the literatures the daily observations are applied, which are generally composed of the average value or the close price of a trading day. By using these data, the analysis is not accurate enough and the characteristics of the return at the different time points in the day cannot be shown. Therefore, to get the more exact results the observations at five fixed trading time points are selected in this work, i.e. 09:30, 11:00, 12:30, 14:00 and 15:30. In one data set, the neighbor observations are 24 hours apart, which means they are exact daily data. Because of the ``overnight effect'' the open price is not chosen. The ``overnight effect'' means that, the open price may be obviously different from the price at other time points. Normally, the government selects to release the important issues after the stock markets closed, in order to avoid that the investors cannot immediately reflect to the information. This may cause irrational fluctuations of the stock price at open. Furthermore, because of the time difference, the abroad information may also cause an abnormal fluctuation of open price \citep{Tsai2012}. Sometimes, in order to avoid this potential risk, the stockholders choose to change their equity of stock holding at the close time, which may result in the abnormal fluctuation of close price. Therefore, the close price is also excluded.  
 
-In the empirical examples, the characters of the semi-parametric models, the comparison between the semi-parametric models and the parametric models, the volatility of returns at the different trading times in one day and influence of the financial crisis on the companies will be shown by analyzing the empirical results. To deal with the data and get the fitted models, R, a free and open sourced statistics and econometrics software, is used. It is easy to use and the package of R will extend with the development of the model. Many new products in the statistics were originally appeared as a R package before became a business platform, e.g. the “fgarch” and “rugarch” package, which will be used for data processing in this work \citep{Consulting2013}.
+In the empirical examples, the characters of the semi-parametric models, the comparison between the semi-parametric models and the parametric models, the volatility of returns at the different trading times in one day and influence of the financial crisis on the companies will be shown by analyzing the empirical results. To deal with the data and get the fitted models, R, a free and open sourced statistics and econometrics software, is used. It is easy to use and the package of R will extend with the development of the model. Many new products in the statistics were originally appeared as a R package before became a business platform, e.g. the ``fgarch'' and ``rugarch'' package, which will be used for data processing in this work \citep{Consulting2013}.
 
 Firstly, the fitted scale function of semi-parametric is estimated by using the ``fgarch'' package of R. The applied method was discussed in semi-parametric APARCH model as mentioned above. Here the bandwidth is selected automatically by R \citep{Wuertz2013}. An initial bandwidth is given according to Cross-Validation. Then the final best bandwidth is selected by the plug-in method. Secondly, the standardized returns are obtained by the means of the estimated scale function. Thirdly, the fitted semi-parametric APARCH, EGARCH and CGARCH models of the orders  (1,1), (1,2), (2,1) and (2,2) are got by using the ``rugarch'' package of R
- \citep{Ghalanos2014a}.In these processes, the distribution is assumed as the student-t distribution. The t distribution has fatter tails and is more leptokurtic than normal distribution \citep{Pollard1998}. From table 1 we can also see that, the models with student-t distribution have smaller Bayesian information criterion (BIC) than the ones with normal distribution. BIC is a criterion for model selection. The lower the BIC, the better the model \citep{Schwarz1978}. Furthermore, by using student-t distribution, an additional parameter ``shape'' can be under consideration, which expresses the degrees of freedom and can help to discuss the existence of the conditional variance’s 2mth moment and the development level of the company. Finally, the best semi-parametric model will be selected through comparing the BIC. Then the risk and the leverage effect can be discussed by the empirical results.
+ \citep{Ghalanos2014a}.In these processes, the distribution is assumed as the student-t distribution. The t distribution has fatter tails and is more leptokurtic than normal distribution \citep{Pollard1998}. From table \ref{tab:table-stu-alc} we can also see that, the models with student-t distribution have smaller Bayesian information criterion (BIC) than the ones with normal distribution. BIC is a criterion for model selection. The lower the BIC, the better the model \citep{Schwarz1978}. Furthermore, by using student-t distribution, an additional parameter ``shape'' can be under consideration, which expresses the degrees of freedom and can help to discuss the existence of the conditional variance’s 2mth moment and the development level of the company. Finally, the best semi-parametric model will be selected through comparing the BIC. Then the risk and the leverage effect can be discussed by the empirical results.
+
+\begin{table}[!h]
+  \small
+  \centering
+  \vspace{2ex}
+%\resizebox{\textwidth}{!}{ % compress table
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c}{CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+& norm  & std & norm  & std & norm   & std  \\
+\midrule
+\hline
+T = 09:30  & 2.7459 & 2.7117 & 2.7473 & 2.7108 & 2.7689 & 2.7283 \\
+
+T = 11:00  & 2.7816 & 2.7542 & 2.7815 & 2.7528 & 2.7996 & 2.7671 \\
+
+T = 12:30  & 2.7828 & 2.7543 & 2.7826 & 2.7524 & 2.8041 & 2.7690 \\
+
+T = 14:00  & 2.7738 & 2.7424 & 2.7713 & 2.7396 & 2.8001 & 2.7592 \\
+
+T = 15:30  & 2.7921 & 2.7558 & 2.7923 & 2.7545 & 2.8084 & 2.7715 \\
+
+\bottomrule
 
 
-\section{Semi-parametric application in Allianz}
+\end{tabular}
+%} %end of compress
+
+  \caption{BIC of selected models with normal and student-t distribution for Alianz}
+  \label{tab:table-stu-alc}
+  
+\end{table}
+
+%\section{Semi-parametric application in Allianz}
+\section{Empirical Result of Allianz}
 
 At first, the proposed algorithm is applied to the returns of Allianz at five given trading time points. The long-term risks of these five data sets are analyzed through the estimated scale function; the short-term risks and the leverage effect are estimated by discussing the conditional heteroskedasticity by using APARCH, EGARCH and CGARCH models of a best order based on standardized returns. 
 
@@ -21,25 +57,345 @@ At first, the proposed algorithm is applied to the returns of Allianz at five gi
 \subsection{Comparing the long-term risk}
 
 There are four plots in figure 1, 3, 5, 7 and 9, respectively: a) the observations, b) the returns series, c) the estimated scale functions with d=1(solid line) and d=2(dashed line), and d) the standardized returns, which is calculated by means of the estimated scale function in (c) with d=1. 
-According to the plots (b), the return series show up two times strong volatilities. The first one is the financial crisis in 2007/2008. The American subprime loan defaults soar caused the shock, fear and crisis in the international financial market in 2007 and spread to a global financial crisis in 2008. The second one is the “Euro crisis”, which happened in August and September 2011. The global financial crisis in 2008 caused serious negative influences for the economy in many European countries. In order to save the bank, the sovereign debt increased sharply and exceeded the solvency in several countries. This crisis started from the Greece debt crisis in 2010, and nearly the whole Europe was involved in until September 2011. The high peaks of scale function show that, this company has extremely high long-term risk during the financial crisis. From these figures, it also can be seen that the volatility at 09:30 is strongest in all the given trading time points because of the ``overnight effect''. 
+According to the plots (b), the return series show up two times strong volatilities. The first one is the financial crisis in 2007/2008. The American subprime loan defaults soar caused the shock, fear and crisis in the international financial market in 2007 and spread to a global financial crisis in 2008. The second one is the ``Euro crisis'', which happened in August and September 2011. The global financial crisis in 2008 caused serious negative influences for the economy in many European countries. In order to save the bank, the sovereign debt increased sharply and exceeded the solvency in several countries. This crisis started from the Greece debt crisis in 2010, and nearly the whole Europe was involved in until September 2011. The high peaks of scale function show that, this company has extremely high long-term risk during the financial crisis. From these figures, it also can be seen that the volatility at 09:30 is strongest in all the given trading time points because of the ``overnight effect''. 
 
 From the figure (c) we can see that, corresponding the volatility of returns, there are two sub-periods of the scale function with high peaks during the two financial crises; and the first peak is higher than the second one, which indicates that the company Allianz had higher risk during the financial crisis 2007/2008 than the ``Euro crisis''.
 
 Except the two financial crises, the scale functions stay at a relatively low level in the whole selected time area, usually in the below area of the confidence interval. This means that the financial market developed stable in these periods. However, the stock prices in the time between the two financial crises stay at a relatively low level. From this we can know that, the negative influence of the global financial crisis in 2007/2008 cannot be totally compensated before the second financial crisis started. 
 
-Comparing the scale functions for the given trading time points, which are estimated with d=1 and d=2, we can see that，they are generally the same in the stable periods. The differences between the two estimated scale functions often appeared at the boundary or during the financial crisis. For example, the estimated scale functions at 12:30 and 14:00 with d=1 are below the ones with d=2 at the outbreak of the two financial crises, and are clearly up at the beginning of the crises. 
-Furthermore, the estimated scale functions at 09:30, 11:00 and 15:30 show up more differences between with d=1 and d=2. The scale function with d=1 at 09:30 is clearly up the one with d=2 at the beginning of the global financial crisis in 2007/2008. Then the increasing speed of the scale function with d=1 becomes gradually slow. In the worst several months of the financial crisis the scale function with d=1 stays below the one with d=2. In the “Euro crisis”, the scale function with d=1 is also up the one with d=2 at the beginning；and then the two lines tend to be overlapped. At 11:00 and 15:30, the differences between the scale functions with d=1 and d=2 are more obvious. The scale function with d=1 is clearly up the one with d=2 at the beginning of each financial crisis. When the scale functions reach to the highest level, the scale function with d=1 stays at a significant lower level than the one with d=2. Then it becomes higher than d=2 again as the decline of the financial crisis.
+Comparing the scale functions for the given trading time points, which are estimated with d=1 and d=2, we can see that they are generally the same in the stable periods. The differences between the two estimated scale functions often appeared at the boundary or during the financial crisis. For example, the estimated scale functions at 12:30 and 14:00 with d=1 are below the ones with d=2 at the outbreak of the two financial crises, and are clearly up at the beginning of the crises. 
+Furthermore, the estimated scale functions at 09:30, 11:00 and 15:30 show up more differences between with d=1 and d=2. The scale function with d=1 at 09:30 is clearly up the one with d=2 at the beginning of the global financial crisis in 2007/2008. Then the increasing speed of the scale function with d=1 becomes gradually slow. In the worst several months of the financial crisis the scale function with d=1 stays below the one with d=2. In the ``Euro crisis'', the scale function with d=1 is also up the one with d=2 at the beginning；and then the two lines tend to be overlapped. At 11:00 and 15:30, the differences between the scale functions with d=1 and d=2 are more obvious. The scale function with d=1 is clearly up the one with d=2 at the beginning of each financial crisis. When the scale functions reach to the highest level, the scale function with d=1 stays at a significant lower level than the one with d=2. Then it becomes higher than d=2 again as the decline of the financial crisis.
 
-According to above discussion, the following standardized returns are calculated by using the scale function with d=1. Firstly, in particular, the up-bound can be used as an early warning sign for a possible financial crisis in the future. For this purpose, the application of significance at a lower level might be more practical. Secondly, the selected bandwidths for d=1 are generally smaller than that for d=2. Generally speaking, the smaller bandwidth is preferred. Thirdly, when the scale function with d=1 is applied, the returns are estimated by the absolute returns. In this case, only the existence of fourth moment of conditional variance should be required. However, with the scale function with d=2 the returns are estimated by the square returns. The conditional variance’s eighth moment should be exist. From the above discussion, the eighth moment of conditional variance in most cases does not exist. Furthermore, by using d=1 the boundary problem can be solved, while this may cause an abnormal fluctuation with d=2.
+According to above discussion, the following standardized returns are calculated by using the scale function with d=1. Firstly, in particular, the up-bound can be used as an early warning sign for a possible financial crisis in the future. For this purpose, the application of significance at a lower level might be more practical. Secondly, the selected bandwidths for d=1 are generally smaller than that for d=2(table \ref{tab:bandwidthALV}). Generally speaking, the smaller bandwidth is preferred. Thirdly, when the scale function with d=1 is applied, the returns are estimated by the absolute returns. In this case, only the existence of fourth moment of conditional variance should be required. However, with the scale function with d=2 the returns are estimated by the square returns. The conditional variance’s eighth moment should be exist. From the above discussion, the eighth moment of conditional variance in most cases does not exist. Furthermore, by using d=1 the boundary problem can be solved, while this may cause an abnormal fluctuation with d=2.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Selected bandwidths in all times(T) of ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+    &T=09:30&T=11:00&T=12:30&T=14:00&T=15:30 \\
+\midrule
+\hline
+d=1	&0.09845639	& 0.0932583		&0.09118069	& 0.09206592  &	0.1017511\\
+d=2	&0.1069041	& 0.1046261		&0.09312175	& 0.1070296	  &   0.08780973\\
+\bottomrule
+
+\end{tabular}
+  \caption{Selected bandwidths in all times(T) of ALV}
+  \label{tab:bandwidthALV}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Selected bandwidths in all times(T) of ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \subsection{Comparing the conditional behaviors}
 
 According to plot (d), the standardized return series are quite stable. However, because the nonparametric and parametric components are almost orthogonal to each other, the series still clearly exhibit the influence of market changes that is not affected by estimating or removing the nonparametric component.
-By using the ``rugarch'' package in R the fitted APACH, EGARCH and CGARCH models of orders (1,1), (1,2), (2,1) and (2,2) under the student-t distribution can be obtained based on the standardized returns. The best order in all cases is the order (1,1) through comparing the BIC in table 2. Therefore, we only discuss APARCH(1,1), EGARCH(1,1) and CGARCH(1,1) models in this work.
 
-Tables 3, 4, 5, 6 and 7 show the estimated coefficients for Allianz at the five given trading time points, respectively. From these tables we can see that, the APARCH model usually has the largest degree of freedom of the innovation distribution in each case, while the CGARCH model has the smallest one. For the time 09:30，11:00 and 14:00 the degrees of freedom are all between 6 and 7,5; and for the time 12:30 in all models and 15:30 in EGARCH and CGARCH models the degrees of freedom are almost equal to 8. This means that the distributions in these trading time points are nearly heavy-tailed and the eighth moment of conditional variance $\varepsilon_t$  does not exist, but fourth moment. In APARCH model at 15:30 the degree of freedom is 8.13. Now the distribution is also nearly heavy-tailed but the eighth moment of  $\varepsilon_t$ exists. We can see that, the possibility of an extreme return at 09:30，11:00 and 14:00 is higher than that at 12:30 and 15:30.
-If the best model is selected only by comparing BIC, we can see from the table 3 that in all five cases EGARCH model is the best model with the smallest BIC while CGARCH model is the worst. However, different models can be used to different economic situations. APARCH and EGARCH models can show the leverage effect; CGARCH model exhibits the persistence of the shock on the long-term and the short-term.
+By using the ``rugarch'' package in R the fitted APACH, EGARCH and CGARCH models of orders (1,1), (1,2), (2,1) and (2,2) under the student-t distribution can be obtained based on the standardized returns. The best order in all cases is the order (1,1) through comparing the BIC in table \ref{tab:bicALV}. Therefore, we only discuss APARCH(1,1), EGARCH(1,1) and CGARCH(1,1) models in this work.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of BIC of all selected models for ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+	         &	T=09:30	&T=11:00&T=12:30&T=14:00&T=15:30\\
+\midrule
+\hline		 
+
+APARCH-t(1,1)&	2.7117	&2.7542	&2.7543	&2.7424	&2.7558 \\
+
+APARCH-t(1,2)&	2.7151	&2.7577	&2.7577	&2.7458	&2.7593 \\
+
+APARCH-t(2,1)&	2.7183	&2.7611	&2.7606	&2.7493	&2.7622 \\
+
+APARCH-t(2,2)&	2.7218	&2.7645	&2.7641	&2.7524	&2.7656 \\
+
+EGARCH-t(1,1)&	2.7108	&2.7528	&2.7524	&2.7396	&2.7545 \\
+
+EGARCH-t(1,2)&	2.7142	&2.7562	&2.7558	&2.7430	&2.7580 \\
+
+EGARCH-t(2,1)&	2.7176	&2.7597	&2.7579	&2.7458	&2.7609 \\
+
+EGARCH-t(2,2)&	2.7204	&2.7631	&2.7614	&2.7492	&2.7646 \\
+
+CGARCH-t(1,1)&	2.7283&	2.7671&	2.7690	&2.7592	&2.7715 \\
+
+CGARCH-t(1,2)&	2.7309&	2.7706&	2.7725	&2.7627	&2.7750\\
+
+CGARCH-t(2,1)&	2.7317&	2.7706&	2.7721	&2.7625	&2.7742\\
+
+CGARCH-t(2,2)&	2.7342&	2.7740&	2.7756	&2.7660	&2.7777\\
+
+\bottomrule
+
+\end{tabular}
+  \caption{BIC of all selected models for ALV}
+  \label{tab:bicALV}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of BIC of all selected models for ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for ALV at 9:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+$\mu$       & 0.0308 & 0.0182	& 0.0235	& 0.0181  & 0.0462  & 0.0180    \\
+$\omega$    & 0.0721 & 0.0172	& -0.0085	& 0.0060  & 0.0047  & 0.0006    \\
+$\alpha_1$  & 0.0656 & 0.0309	& -0.1215	& 0.0208  & 0.1018  & 0.0191    \\
+$\beta_1$   & 0.8411 & 0.0288	& 0.9281	& 0.0167  & 0.8351  & 0.0300    \\
+$\gamma_1 $ & 0.7207 & 0.3454	& 0.1729	& 0.0304  & -		& -			\\
+$\delta$    & 1.8156 & 0.3597	& -			& -		  & -		& -			\\
+$\eta_{11}$ & -	 	 & -     	& -			& - 	  & 0.9956 	& 0.0000	\\
+$\eta_{21}$ & -		 & -     	& -			& - 	  & 0.0000 	& 0.0000	\\
+shape       & 6.5064 & 0.8851	& 6.3915	& 0.8530  & 6.0607 	& 0.7792	\\
+
+% $\alpha_2$   & - & - & - & - & 0.021706 & 0.011395 \\
+
+%$\gamma_2$   & - & - & - & - &1 \\
+
+%$\beta_1$  &  & &0.00000001&0.08676& - & -\\
+
+%$\sigma_1$ & 1.017673 & 0.12041 & 1.01704876 & 0.1207 & 1.058141 & 0.127632 \\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 09:30 for ALV}
+  \label{tab:coefALV930}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for ALV at 9:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for ALV at 11:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0279	& 0.0189	& 0.0282	& 0.0191  & 0.0442	& 0.0187    \\
+$\omega$    & 0.0868	& 0.0219	& -0.0068	& 0.0059  & 0.0054	& 0.0006    \\
+$\alpha_1$  & 0.0717	& 0.0226	& -0.1202	& 0.0215  & 0.0915	& 0.0188    \\
+$\beta_1$   & 0.8336	& 0.0341	& 0.9160	& 0.0210  & 0.8412	& 0.0347    \\
+$\gamma_1 $ & 0.6554	& 0.2800	& 0.1427	& 0.0304  & -     	& -     	\\
+$\delta$    & 1.6610	& 0.3892	& -     	& -       & -     	& -     	\\
+$\eta_{11}$ & -     	& -     	& -     	& -       & 0.9949	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -    		& -       & 0.0000	& 0.0000	\\
+shape       & 7.3037	& 1.1341	& 7.1364	& 1.0881  & 6.9448	& 1.0259	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 11:00 for ALV}
+  \label{tab:coefALV1100}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for ALV at 11:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for ALV at 12:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0242	& 0.0190	& 0.0201	& 0.0190	& 0.0438	& 0.0188    \\
+$\omega$    & 0.0858	& 0.0204	&-0.0068	& 0.0057	& 0.0034	& 0.0003    \\
+$\alpha_1$  & 0.0724	& 0.0215	&-0.1192	& 0.0208	& 0.0921	& 0.0181    \\
+$\beta_1$   & 0.8398	& 0.0311	& 0.9174	& 0.0200	& 0.8330	& 0.0324    \\
+$\gamma_1 $ & 0.7439	& 0.2797	& 0.1439	& 0.0307	& -     	& -     	\\
+$\delta$    & 1.4690	& 0.2978	& -     	& -     	& -     	& -     	\\
+$\eta_{11}$ & -     	& -     	& -     	& -     	& 0.9967	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -     	& -     	& 0.0000	& 0.0000	\\
+shape       & 7.9157	& 1.2338	& 7.7971	& 1.1984	& 7.2398	& 1.0469	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 12:30 for ALV}
+  \label{tab:coefALV1230}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for ALV at 12:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for ALV at 14:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0237	& 0.0187	&  0.0231	& 0.0180	& 0.0428	& 0.0186    \\
+$\omega$    & 0.0957	& 0.0204	& -0.0094	& 0.0067	& 0.0038	& 0.0004    \\
+$\alpha_1$  & 0.0884	& 0.0199	& -0.1339	& 0.0220	& 0.1000	& 0.0191    \\
+$\beta_1$   & 0.8292	& 0.0291	&  0.9039	& 0.0210	& 0.8207	& 0.0327    \\
+$\gamma_1 $ & 0.8207	& 0.2096	&  0.1647	& 0.0324	&  -    	& -     	\\
+$\delta$    & 1.1473	& 0.2595	& -      	& -     	&  -    	& -     	\\
+$\eta_{11}$ & -     	& -     	& -      	& -     	& 0.9963	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -      	& -     	& 0.0000	& 0.0000	\\
+shape       & 7.4317	& 1.0993	&  7.4128	& 1.0943	& 6.8385	& 0.9355	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 14:00 for ALV}
+  \label{tab:coefALV1400}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for ALV at 14:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for ALV at 15:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0119	& 0.0190	& 0.0085	& 0.0189	& 0.0295	& 0.0190    \\
+$\omega$    & 0.0703	& 0.0189	&-0.0052	& 0.0052	& 0.0041	& 0.0004    \\
+$\alpha_1$  & 0.0636	& 0.0221	&-0.1108	& 0.0197	& 0.0830	& 0.0173    \\
+$\beta_1$   & 0.8570	& 0.0309	& 0.9281	& 0.0192	& 0.8462	& 0.0333    \\
+$\gamma_1 $ & 0.6649	& 0.2724	& 0.1378	& 0.0317	&  -    	& -     	\\
+$\delta$    & 1.7361	& 0.4075	& -      	& -     	&  -    	& -     	\\
+$\eta_{11}$ & -     	& -     	& -      	& -     	& 0.9960	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -      	& -     	& 0.0000	& 0.0000	\\
+shape       & 8.1277	& 1.2303	& 7.9807	& 1.1877	& 7.6925	& 1.1261	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 15:30 for ALV}
+  \label{tab:coefALV1530}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for ALV at 15:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Tables \ref{tab:coefALV930}, \ref{tab:coefALV1100}, \ref{tab:coefALV1230}, \ref{tab:coefALV1400}, and \ref{tab:coefALV1530} show the estimated coefficients for Allianz at the five given trading time points, respectively. From these tables we can see that, the APARCH model usually has the largest degree of freedom of the innovation distribution in each case, while the CGARCH model has the smallest one. For the time 09:30,11:00 and 14:00 the degrees of freedom are all between 6 and 7,5; and for the time 12:30 in all models and 15:30 in EGARCH and CGARCH models the degrees of freedom are almost equal to 8. This means that the distributions in these trading time points are nearly heavy-tailed and the eighth moment of conditional variance $\varepsilon_t$  does not exist, but fourth moment. In APARCH model at 15:30 the degree of freedom is 8.13. Now the distribution is also nearly heavy-tailed but the eighth moment of  $\varepsilon_t$ exists. We can see that, the possibility of an extreme return at 09:30,11:00 and 14:00 is higher than that at 12:30 and 15:30.
+
+If the best model is selected only by comparing BIC, we can see from the table \ref{tab:bicALV} that in all five cases EGARCH model is the best model with the smallest BIC while CGARCH model is the worst. However, different models can be used to different economic situations. APARCH and EGARCH models can show the leverage effect; CGARCH model exhibits the persistence of the shock on the long-term and the short-term.
 
 In APARCH model, the leverage parameter $\gamma$  for the five given trading time points are 0.72, 0.83, 0.74, 0.82 and 0.66, respectively. This means that the leverage effect of Allianz is always strong; and the contribution of a negative return on yesterday to today’s volatility is more than the contribution of a positive return. In EGARCH model,  $\alpha$ is the sign effect and $\gamma$  is the size effect. According to the tables, the estimated $\alpha$ is smaller than -0.1 in all cases. Because $\alpha$  is significantly below to zero, we can say that this model also expresses the leverage effect. Volatility tends to rise (fall) when returns surprises are negative (positive), and the negative returns can result in larger volatility.
 
@@ -55,9 +411,89 @@ In order to express the advantage of applying the different given trading time p
 
 At first, from the returns we can see that, the volatility of returns with the daily data is the strongest during the global financial crisis in 2007/2008 and also stronger than that at other given trading time points except 09:30 during the ``Euro crisis''. The trends of the scale functions with the six data sets are similar, which stay extremely higher level during the financial crisis and lower level during the periods of stable development.
 
-Secondly, the conditional heteroskedasticity following different parametric models are compared. According to the calculation of R, the selected bandwidth with d=1 (0.09) is smaller than the one with d=2 (0.11). Therefore, the standardized returns are also calculated by the means of the scale function with d=1 in this case. Based on the standardized returns, the fitted APARCH, EGARCH and CGARCH models of different orders can be obtained. All the models of the order (1,1) have the smallest BIC.
 
-The shape of APRCH, EGARCH and CGARCH models are 6.13, 6.07 and 5.76, respectively, which ensure the existence of the fourth moment of the conditional variance, but are smaller than the values at the given trading time points. In this case EGARCH model is also the best model, while CGARCH model is the worst. Comparing with the models at the given trading time points, the models with daily returns have the smallest BIC in APARCH and EGARCH models, and only larger than the one at 09:30 in CGARCH model. From the estimated parameters we can see that, the leverage parameter $\gamma$  of APARCH model with daily returns is 0.97. This value is very close to 1 and larger than the ones at other time points. Therefore, this model expresses stronger leverage effect. The sign effect  $\alpha$  is -0.12, which is not significant different with the one at other time points. In CGARCH model, the estimated $\varphi$  is also 0, while $\rho$  is 0.991. It is larger than 0.99, but smaller than the one at other time points. This means that the impact of shocks will keep to a long term; but the persistence is shorter.
+Secondly, the conditional heteroskedasticity following different parametric models are compared. According to the calculation of R, the selected bandwidth with d=1 (0.09) is smaller than the one with d=2 (0.11). Therefore, the standardized returns are also calculated by the means of the scale function with d=1 in this case. Based on the standardized returns, the fitted APARCH, EGARCH and CGARCH models of different orders can be obtained. All the models of the order (1,1) have the smallest BIC(Table \ref{tab:dailyBICforALV}).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of BIC of the fitted models with daily returns for ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c}
+\toprule
+	         &	APARCH	& EGARCH	& CGARCH	\\
+\midrule
+\hline		 
+
+(1,1)&	2.7048	& 2.7019	&2.7284	 \\
+(1,2)&	2.7081	& 2.7051	&2.7318	 \\
+(2,1)&	2.7112	& 2.7076	&2.7308	 \\
+(2,2)&	2.7147	& 2.7110	&2.7343	 \\
+\bottomrule
+
+\end{tabular}
+  \caption{BIC of the fitted models with daily returns for ALV}
+  \label{tab:dailyBICforALV}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of BIC of the fitted models with daily returns for ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models with daily returns for ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0192	& 0.0176	& 0.0193 	& 0.0177	& 0.0330	& 0.0180    \\
+$\omega$    & 0.0601	& 0.0169	&-0.0059	& 0.0051	& 0.0095	& 0.0011    \\
+$\alpha_1$  & 0.0685	& 0.0118	&-0.1219	& 0.0197	& 0.0848	& 0.0174    \\
+$\beta_1$   & 0.8830	& 0.0247	& 0.9408 	& 0.0166	& 0.8564	& 0.0298    \\
+$\gamma_1 $ & 0.9659	& 0.0190	& 0.1285 	& 0.0268	& -     	& -			\\
+$\delta$    & 1.1101	& 0.2396	& -      	& -     	& -     	& -			\\
+$\eta_{11}$ & -     	& -     	& -      	& -     	& 0.9909	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -      	& -     	& 0.0000	& 0.0000	\\
+shape       & 6.1328	& 0.7688	& 6.0784 	& 0.7570	& 5.7649	& 0.7136	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models with daily returns for ALV}
+  \label{tab:dailyALV}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models with daily returns for ALV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+According to table \ref{tab:dailyALV}, the shape of APRCH, EGARCH and CGARCH models are 6.13, 6.07 and 5.76, respectively, which ensure the existence of the fourth moment of the conditional variance, but are smaller than the values at the given trading time points. In this case EGARCH model is also the best model, while CGARCH model is the worst. Comparing with the models at the given trading time points, the models with daily returns have the smallest BIC in APARCH and EGARCH models, and only larger than the one at 09:30 in CGARCH model. From the estimated parameters we can see that, the leverage parameter $\gamma$  of APARCH model with daily returns is 0.97. This value is very close to 1 and larger than the ones at other time points. Therefore, this model expresses stronger leverage effect. The sign effect  $\alpha$  is -0.12, which is not significant different with the one at other time points. In CGARCH model, the estimated $\varphi$  is also 0, while $\rho$  is 0.991. It is larger than 0.99, but smaller than the one at other time points. This means that the impact of shocks will keep to a long term; but the persistence is shorter.
 
 According to the figures of the three models’ volatility, APARCH model has a higher level of volatility and exhibits stronger leverage effect than EGARCH and CGARCH models. Comparing with the models at other trading time points, the level of the volatility with daily returns is not significant, which is lower than the one at 09:30 and 11:00, but higher than the one at 12:30, 14:00 and 15:30.
 
@@ -79,15 +515,320 @@ The estimated scale functions at each time are calculated with d=1 and d=2, resp
 
 At the two financial crises the two lines show up clear differences. From beginning of the global financial crisis in 2007/2008, the estimated scale function with d=2 are up the one with d=1 at all the five given trading time points. At 12:30 and 14:00 the level of the scale functions with d=1 are higher than the ones at other time points, so the difference between the two estimated scale functions is relatively small at 12:30 and 14:00. The two scale functions at 09:30 tend to gradually overlap during the drop off part of the peak. However, at other time points, the two lines have intersections until the beginning of the second stable period. The overlap of the two scale functions at 11:00 remains until the end of my sample. Differently, at the outbreak phase of  ``Euro crisis'', the scale function with d=1 at 09:30 is below the one with d=2, and then overlaps. At 12:30, 14:00 and 15:30 the overlap of the two lines remains just a short time. Then the scale function with d=2 becomes below the one with d=1 and above at the beginning of the second financial crisis. However, when the second peak of the scale function almost reaches the highest level, the scale function with d=2 stays below and this phenomena remains to the end of 2013.
 
-Comparing the selected bandwidth with d=1 and d=2 in table 10, bandwidth with d=1 is mostly smaller. Furthermore, according to the above discuss, the following standardized returns are calculated by means of the estimated scale function with d=1.
+Comparing the selected bandwidth with d=1 and d=2 in table 10, bandwidth with d=1 is mostly smaller. Furthermore, according to the above discuss, the following standardized returns are calculated by means of the estimated scale function with d=1(table \ref{tab:bandwidthBMW}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Selected bandwidths in all times(T) of BMW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+    &T=09:30&T=11:00&T=12:30&T=14:00&T=15:30 \\
+\midrule
+\hline
+d=1	& 0.1047	& 0.1043	& 0.1047	& 0.1050	& 0.1054	\\
+d=2	& 0.1020	& 0.1061	& 0.1075	& 0.1071	& 0.1067	\\
+\bottomrule
+
+\end{tabular}
+  \caption{Selected bandwidths in all times(T) of BMW}
+  \label{tab:bandwidthBMW}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Selected bandwidths in all times(T) of BMW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{Comparing the conditional behaviors}
 
-This process of standardized return transforms the non-stationary time series to stationary time series, which reduce the extremely values and can also express the impact of great market changes. Then the fitted APARCH, EGARCH and CGARCH models of orders (1,1), (1,2), (2,1) and (2,2) can be obtained based on the standardized returns. By comparing BIC the best order in each case can be selected. In this example, the best order of all cases is also order (1,1).
+This process of standardized return transforms the non-stationary time series to stationary time series, which reduce the extremely values and can also express the impact of great market changes. Then the fitted APARCH, EGARCH and CGARCH models of orders (1,1), (1,2), (2,1) and (2,2) can be obtained based on the standardized returns. By comparing BIC the best order in each case can be selected(table \ref{tab:bicBMW}). In this example, the best order of all cases is also order (1,1).
 
-From the tables of the estimated coefficients we can see that, the shape values at 09:30，11:00，12:30 and 14:00 are between 5 and 8. The distribution is nearly heavy tails and the eighth moment of the conditional variance does not exist. However, the fourth moment exists. At 15:30 the shape values of APARCH, EGARCH and CGARCH models are all larger than 8. At this trading time point the innovation distribution is also nearly heavy tails but the eighth moment of the conditional variance exist. This can also express that the scale function with d=1 should be chosen in the calculation.
 
-The tables also show that the estimated leverage parameters $\gamma$  of APARCH(1,1) model at 09:30, 11:00, 12:30 and 15:30 are 0.72，0.8，0.81 and 0.797, respectively. This means that the leverage effect is strong at these time points. At 14:00 the value of $\gamma$  is just 0.37, which shows that the leverage effect is weak at this time point or APARCH model does not present the effect effectively. The estimated sign effect $\alpha$  of EGARCH(1,1) model at these five trading time points are -0.072，-0.069，-0.062，-0.056 and -0.09, which are all smaller than 0. This shows that the leverage effect always exists, and it is strongest at 15:30 and weakest at 14:00.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of BIC of all selected models for BMW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex} 
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+	         &	T=09:30	&T=11:00&T=12:30&T=14:00&T=15:30\\
+\midrule
+\hline		 
+
+APARCH-t(1,1)	& 2.7862	& 2.7904	& 2.7923	& 2.8003	& 2.7906 \\
+APARCH-t(1,2)	& 2.7897	& 2.7933	& 2.7958	& 2.8039	& 2.7941 \\
+APARCH-t(2,1)	& 2.7931	& 2.7973	& 2.7993	& 2.8073	& 2.7964 \\
+APARCH-t(2,2)	& 2.7965	& 2.8002	& 2.8016	& 2.8108	& 2.7996 \\
+EGARCH-t(1,1)	& 2.7842	& 2.7881	& 2.7905	& 2.7988	& 2.7892 \\
+EGARCH-t(1,2)	& 2.7878	& 2.7909	& 2.7941	& 2.8024	& 2.7927 \\
+EGARCH-t(2,1)	& 2.7912	& 2.7938	& 2.7969	& 2.8058	& 2.7933 \\
+EGARCH-t(2,2)	& 2.7945	& 2.7968	& 2.7995	& 2.8049	& 2.7968 \\
+CGARCH-t(1,1)	& 2.7959	& 2.7976	& 2.8004	& 2.8055	& 2.8026 \\
+CGARCH-t(1,2)	& 2.7995	& 2.8000	& 2.8037	& 2.8092	& 2.8064 \\
+CGARCH-t(2,1)	& 2.7996	& 2.8013	& 2.8041	& 2.8092	& 2.8041 \\
+CGARCH-t(2,2)	& 2.8027	& 2.8035	& 2.8071	& 2.8119	& 2.8076 \\
+
+\bottomrule
+
+\end{tabular}
+  \caption{BIC of all selected models for BMW}
+  \label{tab:bicBMW}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of BIC of all selected models for BMW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for BMW at 9:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+$\mu$       & 0.0260	& 0.0191 	& 0.0261 	&  0.0185	&  0.0370	& 0.0193  \\
+$\omega$    & 0.0597	& 0.0185 	& -0.0012	&  0.0046	&  0.0070	& 0.0005  \\
+$\alpha_1$  & 0.0471	& 0.0152 	& -0.0726	&  0.0230	&  0.0602	& 0.0199  \\
+$\beta_1$   & 0.9009	& 0.0253 	& 0.9392 	&  0.0555	&  0.8522	& 0.0654  \\
+$\gamma_1 $ & 0.7239	& 0.3196 	& 0.0941 	&  0.0539	&  -     	& -       \\
+$\delta$    & 1.2406	& 0.3924 	& -      	&  -     	&  -     	& -       \\
+$\eta_{11}$ & -     	& -     	& -      	&  -     	&  0.9932	& 0.0000  \\
+$\eta_{21}$ & -     	& -     	& -      	&  -     	&  0.0000	& 0.0000  \\
+shape       & 6.5687	& 0.9092 	& 6.5137 	&  0.9122	&  6.3533	& 0.8636  \\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 09:30 for BMW}
+  \label{tab:coefBMW930}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for BMW at 9:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for BMW at 11:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0279	& 0.0189	& 0.0282	& 0.0191  & 0.0442	& 0.0187    \\
+$\omega$    & 0.0868	& 0.0219	& -0.0068	& 0.0059  & 0.0054	& 0.0006    \\
+$\alpha_1$  & 0.0717	& 0.0226	& -0.1202	& 0.0215  & 0.0915	& 0.0188    \\
+$\beta_1$   & 0.8336	& 0.0341	& 0.9160	& 0.0210  & 0.8412	& 0.0347    \\
+$\gamma_1 $ & 0.6554	& 0.2800	& 0.1427	& 0.0304  & -     	& -     	\\
+$\delta$    & 1.6610	& 0.3892	& -     	& -       & -     	& -     	\\
+$\eta_{11}$ & -     	& -     	& -     	& -       & 0.9949	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -    		& -       & 0.0000	& 0.0000	\\
+shape       & 7.3037	& 1.1341	& 7.1364	& 1.0881  & 6.9448	& 1.0259	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 11:00 for BMW}
+  \label{tab:coefBMW1100}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for BMW at 11:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for BMW at 12:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0242	& 0.0190	& 0.0201	& 0.0190	& 0.0438	& 0.0188    \\
+$\omega$    & 0.0858	& 0.0204	&-0.0068	& 0.0057	& 0.0034	& 0.0003    \\
+$\alpha_1$  & 0.0724	& 0.0215	&-0.1192	& 0.0208	& 0.0921	& 0.0181    \\
+$\beta_1$   & 0.8398	& 0.0311	& 0.9174	& 0.0200	& 0.8330	& 0.0324    \\
+$\gamma_1 $ & 0.7439	& 0.2797	& 0.1439	& 0.0307	& -     	& -     	\\
+$\delta$    & 1.4690	& 0.2978	& -     	& -     	& -     	& -     	\\
+$\eta_{11}$ & -     	& -     	& -     	& -     	& 0.9967	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -     	& -     	& 0.0000	& 0.0000	\\
+shape       & 7.9157	& 1.2338	& 7.7971	& 1.1984	& 7.2398	& 1.0469	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 12:30 for BMW}
+  \label{tab:coefBMW1230}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for BMW at 12:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for BMW at 14:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0237	& 0.0187	&  0.0231	& 0.0180	& 0.0428	& 0.0186    \\
+$\omega$    & 0.0957	& 0.0204	& -0.0094	& 0.0067	& 0.0038	& 0.0004    \\
+$\alpha_1$  & 0.0884	& 0.0199	& -0.1339	& 0.0220	& 0.1000	& 0.0191    \\
+$\beta_1$   & 0.8292	& 0.0291	&  0.9039	& 0.0210	& 0.8207	& 0.0327    \\
+$\gamma_1 $ & 0.8207	& 0.2096	&  0.1647	& 0.0324	&  -    	& -     	\\
+$\delta$    & 1.1473	& 0.2595	& -      	& -     	&  -    	& -     	\\
+$\eta_{11}$ & -     	& -     	& -      	& -     	& 0.9963	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -      	& -     	& 0.0000	& 0.0000	\\
+shape       & 7.4317	& 1.0993	&  7.4128	& 1.0943	& 6.8385	& 0.9355	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 14:00 for BMW}
+  \label{tab:coefBMW1400}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for BMW at 14:00
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of Table Estimated coefficients of the Selected models for BMW at 15:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!h]
+ \small
+  \centering
+  \vspace{2ex}
+
+%\resizebox{\textwidth}{!}{ % compress table
+  
+\begin{tabular}{c|cc|cc|cc}
+\toprule
+\multirow{2}{*}{} &
+\multicolumn{2}{c|}{APARCH(1,1)} &
+\multicolumn{2}{c|}{EGARCH(1,1)} &
+\multicolumn{2}{c} {CGARCH(1,1)} \\
+\cline{1-3}\cline{4-5}\cline{6-7}
+
+& Coeff  & s.e. & Coeff  & s.e. & Coeff   & s.e.  \\
+\midrule
+\hline
+
+$\mu$       & 0.0119	& 0.0190	& 0.0085	& 0.0189	& 0.0295	& 0.0190    \\
+$\omega$    & 0.0703	& 0.0189	&-0.0052	& 0.0052	& 0.0041	& 0.0004    \\
+$\alpha_1$  & 0.0636	& 0.0221	&-0.1108	& 0.0197	& 0.0830	& 0.0173    \\
+$\beta_1$   & 0.8570	& 0.0309	& 0.9281	& 0.0192	& 0.8462	& 0.0333    \\
+$\gamma_1 $ & 0.6649	& 0.2724	& 0.1378	& 0.0317	&  -    	& -     	\\
+$\delta$    & 1.7361	& 0.4075	& -      	& -     	&  -    	& -     	\\
+$\eta_{11}$ & -     	& -     	& -      	& -     	& 0.9960	& 0.0000	\\
+$\eta_{21}$ & -     	& -     	& -      	& -     	& 0.0000	& 0.0000	\\
+shape       & 8.1277	& 1.2303	& 7.9807	& 1.1877	& 7.6925	& 1.1261	\\
+
+\bottomrule
+\end{tabular}
+%} %end of compress
+  \caption{Estimated coefficients of the Selected models at 15:30 for BMW}
+  \label{tab:coefBMW1530}
+
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Table Estimated coefficients of the Selected models for BMW at 15:30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+From the tables of the estimated coefficients we can see that, the shape values at 09:30, 11:00, 12:30 and 14:00 are between 5 and 8. The distribution is nearly heavy tails and the eighth moment of the conditional variance does not exist. However, the fourth moment exists. At 15:30 the shape values of APARCH, EGARCH and CGARCH models are all larger than 8. At this trading time point the innovation distribution is also nearly heavy tails but the eighth moment of the conditional variance exist. This can also express that the scale function with d=1 should be chosen in the calculation.
+
+The tables also show that the estimated leverage parameters $\gamma$  of APARCH(1,1) model at 09:30, 11:00, 12:30 and 15:30 are 0.72, 0.8, 0.81 and 0.797, respectively. This means that the leverage effect is strong at these time points. At 14:00 the value of $\gamma$  is just 0.37, which shows that the leverage effect is weak at this time point or APARCH model does not present the effect effectively. The estimated sign effect $\alpha$  of EGARCH(1,1) model at these five trading time points are -0.072,-0.069,-0.062,-0.056 and -0.09, which are all smaller than 0. This shows that the leverage effect always exists, and it is strongest at 15:30 and weakest at 14:00.
 
 In CGARCH(1,1) model the estimated $\alpha$  are larger than 0.99 and $\varphi$  are equal to 0 at all the five trading time points. The sum of  $\alpha$  and $\beta$ are around 0.9 but smaller than 0.99. The correlation of these parameters is obvious  $0 < (\alpha + \beta) < \rho <1$ . It indicates that, volatility can reflect the shock immediately and the persistence is long; the impact of volatility on the long-run volatility component will diminish as well but will be more persistent than of the short-run component.
 
@@ -112,278 +853,3 @@ Generally, in the models of the two companies the distribution is nearly heavy-t
 From this we can know the reason why Allianz has higher risk in ``Euro crisis''. The global financial crisis in 2007/2008 brought Allianz a greater influence, which has long persistence. Then this influence was eliminated in a long time. Before the next financial crisis the effect cannot totally disappear. However, BMW can eliminate the effect sooner and then face to the following ``Euro crisis''. 
 
 In summary, the company in the financial market has stronger leverage effect. The difference of change, which is caused by the positive and negative returns, is larger. Its risk is higher during the financial crisis and the persistence is longer.
-
-
-
-
-\begin{table}[!h]
- \small
-  \caption{Estimated coefficients of the APARCH - norm models for Sap index at open}
-  \label{tabValues}
-  \centering
-  \vspace{2ex}
-
-\resizebox{\textwidth}{!}{ % compress table
-  
-\begin{tabular}{ccc|cc|cc|cc}
-\toprule
-\multirow{2}{*}{} &
-\multicolumn{2}{c|}{APARCH(1,1)} &
-\multicolumn{2}{c|}{APARCH(1,2)} &
-\multicolumn{2}{c|}{APARCH(2,1)} &
-\multicolumn{2}{c}{APARCH(2,2)} \\
-\cline{1-3}\cline{4-5}\cline{6-7}\cline{8-9}
-
-& m{Coeff}  & s.e. & Coeff  & s.e. & Coeff   & s.e.  & Coeff  & s.e. \\
-\midrule
-\hline
-$\mu$  & 0.012459 & 0.013555 & 0.0124602 & 0.01356 & 0.011818 & 0.013940 & 0.012812 & 0.013729  \\
-\hline
-$\omega$  & 0.050010 & 0.006252 & 0.0500216 & 0.00687 & 0.054857 & 0.007283 & 0.097006 & 0.012668 \\
-\hline
-$\alpha_1$   & 0.076004 & 0.006336 & 0.0760131 & 0.00838 & 0.058272 & 0.011220 & 0.052233 & 0.009390 \\
-\hline
-$\alpha_2$   & & & & & 0.021706 & 0.011395 & 0.086890 & 0.008718\\
-\hline
-$\gamma_1$   &1&0.005733 & 0.99999999 &0.00572 &1 & 0.007523 & 1 & 0.009469\\
-\hline
-$\gamma_2$   & & & & &1 & 0.023297&1&0.011564\\
-\hline
-$\beta_1$  & 0.889283&0.009774&0.88929646& 0.09400 &0.879062&0.01205&0.098934&0.079439\\
-\hline
-$\beta_1$  &  & &0.00000001&0.08676& & &0.687549&0.073186\\
-\hline
-$\sigma_1$  & 1.017673&0.12041&1.01704876&0.1207&1.058141&0.127632&1.069076&0.128453\\
-\bottomrule
-\end{tabular}
-} %end of compress
-
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Selected bandwidths in all times (T) of ALV
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
- \small
-  \caption{Selected bandwidths in all times (T) of ALV}
-  \label{bandalv}
-  \centering
-  \vspace{2ex} 
-\begin{tabular}{c|c|c|c|c|c}
-\toprule
-&T=09:30&T=11:00&T=12:30&T=14:00&T=15:30 \\
-\hline
-d=1	&0.09845639	& 0.0932583		&0.09118069	& 0.09206592  &	0.1017511\\
-\hline
-d=2	&0.1069041	& 0.1046261		&0.09312175	& 0.1070296	  &   0.08780973\\
-\bottomrule
-
-\end{tabular}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% BIC of all selected models for ALV
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
- \small
-  \caption{BIC of all selected models for ALV}
-  \label{bicalv}
-  \centering
-  \vspace{2ex} 
-\begin{tabular}{c|c|c|c|c|c}
-\toprule
-			 &	T=09:30	&T=11:00&T=12:30&T=14:00&T=15:30\\
-\midrule
-\hline		 
-APARCH-t(1,1)&	2.7117	&2.7542	&2.7543	&2.7424	&2.7558 \\
-\hline
-APARCH-t(1,2)&	2.7151	&2.7577	&2.7577	&2.7458	&2.7593 \\
-\hline
-APARCH-t(2,1)&	2.7183	&2.7611	&2.7606	&2.7493	&2.7622 \\
-\hline
-APARCH-t(2,2)&	2.7218	&2.7645	&2.7641	&2.7524	&2.7656 \\
-\hline
-EGARCH-t(1,1)&	2.7108	&2.7528	&2.7524	&2.7396	&2.7545 \\
-\hline
-EGARCH-t(1,2)&	2.7142	&2.7562	&2.7558	&2.7430	&2.7580 \\
-\hline
-EGARCH-t(2,1)&	2.7176	&2.7597	&2.7579	&2.7458	&2.7609 \\
-\hline
-EGARCH-t(2,2)&	2.7204	&2.7631	&2.7614	&2.7492	&2.7646 \\
-\hline
-CGARCH-t(1,1)&	2.7283&	2.7671&	2.7690	&2.7592	&2.7715 \\
-\hline
-CGARCH-t(1,2)&	2.7309&	2.7706&	2.7725	&2.7627	&2.7750\\
-\hline
-CGARCH-t(2,1)&	2.7317&	2.7706&	2.7721	&2.7625	&2.7742\\
-\hline
-CGARCH-t(2,2)&	2.7342&	2.7740&	2.7756	&2.7660	&2.7777\\
-
-\bottomrule
-
-\end{tabular}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Estimated coefficients for ALV at 09:30
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
- \small
-  \caption{Estimated coefficients for ALV at 09:30}
-  \label{coefalv930}
-  \centering
-  \vspace{2ex} 
-\begin{tabular}{c|c|c|c}
-\toprule
-	&	APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
-\midrule
-\hline
-$\eta$ & 0.030811&	0.023525	&0.046245\\
-\hline
-$\omega$ & 0.072068&	-0.008490	&0.004690\\
-\hline
-$\alpha_1$ & 0.065588&	-0.121483	&0.101784\\
-\hline
-$\beta_1$ & 0.841074&	0.928114	&0.835055\\
-\hline
-$\gamma_1$ & 0.720705&	0.172949	&   \_    \\
-\hline
-$\delta$ & 1.815581&		\_		&   \_    \\
-\hline
-$\eta_{11}$ & 	\_	&		\_		&0.995571\\
-\hline
-$\eta_{21}$ &	\_	&		\_		&0.000000\\
-\hline
-shape& 6.506437&	6.391486	&6.060666\\
-\bottomrule
-
-\end{tabular}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Tables and figures for ALV at 11:00
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
- \small
-  \caption{Tables and figures for ALV at 11:00}
-  \label{coefalv1100}
-  \centering
-  \vspace{2ex} 
-\begin{tabular}{c|c|c|c}
-\toprule
-	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
-\midrule
-\hline
-$\eta$      &0.027935&	0.028150	&0.044178\\
-$\omega$    &0.086802&	-0.006788	&0.005350\\
-$\alpha_1$  &0.071707&	-0.120221	&0.091516\\
-$\beta_1$   &0.833555&	0.916025	&0.841185\\
-$\gamma_1$  &0.655442&	0.142740	&\_      \\
-$\delta$    &1.660996&	\_			&\_      \\
-$\eta_{11}$ &\_		&	\_			&0.994889\\
-$\eta_{21}$ &\_		&	\_			&0.000000\\
-shape		&7.303654&	7.136397	&6.944785\\
-\bottomrule
-
-\end{tabular}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Tables and figures for ALV at 12:30
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
- \small
-  \caption{Tables and figures for ALV at 12:30}
-  \label{coefalv1230}
-  \centering
-  \vspace{2ex} 
-\begin{tabular}{c|c|c|c}
-\toprule
-	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
-\midrule
-\hline
-$\eta$      &0.024217	&0.020136	&0.043784\\
-$\omega$    &0.085778	&- 0.006793	&0.003444\\
-$\alpha_1$  &0.072438	&- 0.119206	&0.092086\\
-$\beta_1$   &0.839806	&0.917423	&0.833037\\
-$\gamma_1$  &0.743891	&0.143880	&\_      \\
-$\delta$    &1.468959	&\_			&\_      \\
-$\eta_{11}$ &\_			&\_			&0.996659\\
-$\eta_{21}$ &\_			&\_			&0.000000\\
-shape		&7.915656	&7.797071	&7.239844\\
-\bottomrule
-
-\end{tabular}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Tables and figures for ALV at 14:00
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
- \small
-  \caption{Tables and figures for ALV at 14:00}
-  \label{coefalv1400}
-  \centering
-  \vspace{2ex} 
-\begin{tabular}{c|c|c|c}
-\toprule
-	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
-\midrule
-\hline
-$\eta$        &0.023732	&0.023156  	&0.042847 \\
-$\omega$      &0.095697	&-0.009432	&0.003821 \\
-$\alpha_1$    &0.088357	&-0.133916	&0.099963 \\
-$\beta_1$     &0.829213	&0.903927	&0.820708 \\
-$\gamma_1$    &0.820682	&0.164739	&\_       \\
-$\delta$      &1.147269	&\_			&\_       \\
-$\eta_{11}$   &\_		&\_			&0.996322 \\
-$\eta_{21}$   &\_		&\_			&0.000000 \\
-shape		  &7.431702	&7.412819	&6.838452 \\
-\bottomrule
-
-\end{tabular}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Tables and figures for ALV at 15:40
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
- \small
-  \caption{Tables and figures for ALV at 15:40}
-  \label{coefalv1530}
-  \centering
-  \vspace{2ex} 
-\begin{tabular}{c|c|c|c}
-\toprule
-	&APARCH-t(1,1,)&	EGARCH-t(1,1,)&	CGARCH-t(1,1,)\\
-\midrule
-\hline
-$\eta$      &0.011890	&0.008475	&0.029493\\
-$\omega$    &0.070333	&-0.005184	&0.004089\\
-$\alpha_1$  &0.063602	&-0.110778	&0.083003\\
-$\beta_1$   &0.857014	&0.928123	&0.846245\\
-$\gamma_1$  &0.664906	&0.137833	&\_      \\
-$\delta$    &1.736078	&\_			&\_      \\
-$\eta_{11}$ &\_			&\_			&0.995975\\
-$\eta_{21}$ &\_			&\_			&0.000000\\
-shape		&8.127734	&7.980692	&7.692529\\
-\bottomrule
-
-\end{tabular}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

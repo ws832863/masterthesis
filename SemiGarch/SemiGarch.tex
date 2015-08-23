@@ -1,9 +1,9 @@
 \chapter{Semi-parametric models}\label{semiparaGarch}
 
-Parametric GARCH model has many advantages. The function form is accessible, and parameters could be easily estimated. If the model assumptions were correct, the estimation is consistent with reality. However, the drawbacks of parametric models are more disgusting. Firstly, a preselected parametric model may not fit unexpected features, due to too restricted or too low dimensional. Secondly, sometimes the regression function seems to be too complicate or difficult to be defined. Thirdly, because different sequence will be witnessed when different conditional distribution is selected in the process of prediction by using parametric models, there will most possibly exist the problem of misspecification，which may result in a excessively high model bias and loss of efficiency, unless the assumed function perfectly matches the true error distribution \citep{Di2011}.
+Parametric GARCH model has many advantages. The function form is accessible, and parameters could be easily estimated. If the model assumptions were correct, the estimation is consistent with reality. However, the drawbacks of parametric models are more disgusting. Firstly, a preselected parametric model may not fit unexpected features, due to too restricted or too low dimensional. Secondly, sometimes the regression function seems to be too complicate or difficult to be defined. Thirdly, because different sequence will be witnessed when different conditional distribution is selected in the process of prediction by using parametric models, there will most possibly exist the problem of misspecification, which may result in a excessively high model bias and loss of efficiency, unless the assumed function perfectly matches the true error distribution \citep{Di2011}.
 
-Gourieroux and Monfort had firstly inserted the conditional mean and conditional vari-ance into a nonparametric model, in which the function form is not given. This model can supply the gaps of parametric models. Correspondingly, it is less sensitive to model misspecification and can offer a flexible tool in analyzing unknown regression relationships 
-\citep{Gourieroux1992}. In nonparametric regression models, both the error distribution and the functional form of the mean function are not pre-specified. It will be more useful when the regression function seems to be very complex or a suitable function form cannot be found \citep{Eubank1993}. However, the nonparametric models lose some functions, which can be completed by parametric models. Due to lack of specific function forms, the parameters of the model cannot be estimated; further-more the model cannot be explained. Excess variable estimates could rise up because of poor consideration of nonparametric models, especially for small sample size. So a new model, semi-parametric model, is proposed.
+Gourieroux and Monfort had firstly inserted the conditional mean and conditional vari-ance into a nonparametric model, in which the function form is not given.  This model can improve the defects of parametric models. Correspondingly, it is less sensitive to model misspecification and can offer a flexible tool in analyzing unknown regression relationships 
+\citep{Gourieroux1992}. In nonparametric regression models, both the error distribution and the functional form of the mean function are not pre-specified. It will be more useful when the regression function seems to be very complex or a suitable function form cannot be found \citep{Eubank1993}. However, the nonparametric models lose some functions, which can be realized by parametric models. Due to lack of specific function forms, the parameters of the model cannot be estimated; further-more the model cannot be explained. Excess variable estimates could rise up because of poor consideration of nonparametric models, especially for small sample size. So a new model, semi-parametric model, is proposed.
 
 Semi-parametric model consists of not only the nonparametric part but also parametric part. Semi-parametric GARCH model selects the nonparametric form for the scale func-tion and the parametric part for conditional variance lags. Then it does not need a pre-specified function form and is less sensitive to model misspecification. At the same time, the parametric part can also explain the models \citep{Di2011}.
 
@@ -31,7 +31,7 @@ where $h_t^{1/2}$ is the conditional standard deviations of the standardized pro
 
 The estimation of semi-parametric GARCH model can combine the nonparametric estimation of the Y's local variance  $v(x)=\sigma^{2}(x)$,with parametric estimation of the unknown parameter vectors $\theta = (\alpha_{0},\alpha_{1},\ldots,\alpha_{p},\beta_{1},\ldots,\beta_{q})$.
 
-At first, the scale function can be estimated by some nonparametric regression approach consistently without any parametric assumptions. In this model the kernel estimation will be used. \ref{eq:3.1} needs to be transformed into a general nonparametric regression problem at first. Let $ r_{t}=Y_{t}-\mu$, $X_{t}=r_{t}^{2}$ and $\xi_{t}=\varepsilon_{t}^{2}-1 \geq -1$, which are zero mean stationary time series errors. Then the model \ref{eq:3.1} can be rewritten as 
+At first, the scale function can be estimated by some nonparametric regression approaches without any parametric assumptions. In this model the kernel estimation will be used. \ref{eq:3.1} needs to be transformed into a general nonparametric regression problem at first. Let $ r_{t}=Y_{t}-\mu$, $X_{t}=r_{t}^{2}$ and $\xi_{t}=\varepsilon_{t}^{2}-1 \geq -1$, which are zero mean stationary time series errors. Then the model \ref{eq:3.1} can be rewritten as 
 
 \begin{equation}
 \label{equ3.4}
@@ -63,16 +63,16 @@ According to the above assumptions, the estimator $\varepsilon_{t}$  is now repl
 \hat{\varepsilon_t }=\hat{r_t}/\hat{\sigma }(x_t)=(y_t-\bar{y})/\hat{\sigma}(x_t) 
 \end{equation}
 
-Then the estimator of parametric vector $\theta$ can be obtained by the standard maximum likelihood method, which has been introduced in section 2.
+Then the estimator of parametric vector $\theta$ can be obtained by the standard maximum likelihood method, which has been introduced in section 2. A suitable model can also be selected by using other methods, e.g. the akaike information criterion (AIC), the bayesian information criterion (BIC) and etc.
 
 
 (Lack of the introduction of boundary problem )
 %There exists boundary problem in kernel regression. At the boundary, fewer %observations can be averaged, and the estimation at the boundary points will %cause larger bias than the ones at the interior because of the asymmetry in %the observations. This phenomenon is called boundary problem. Local linear %estimator can be used to overcome this problem but may result in negative %estimation sometimes. To improve the boundary problem in kernel regression, %the kernel estimator is introduced . 
 
 
-\section{ Asymptotic properties of $\hat{v}$}
-The estimators of kernel regression function approximate the real value asymptotically. There also exists the bias between the real v and the estimators of kernel regression function $hat{v}$.
-To calculate the bias, several assumptions must be satisfied:
+\subsection{ Asymptotic properties of $\hat{v}$}
+The estimators of kernel regression function approximate the real value. There also exists the bias between the real v and the estimators of kernel regression function $hat{v}$.
+To calculate the bias, several assumptions must be made:
  \begin{enumerate}
     \item $E(\varepsilon_{t}^{8})<\infty$ ensures the process strictly stationary, and $\eta \sim N(0,1)$\citep{Ling2002}
     \item The second derivative of $v(x)$ exists and is continuous on $[0,1]$.
@@ -150,12 +150,12 @@ c_{f}=\frac{E(\varepsilon_{t}^{4})}{3\pi}\frac{(1-\sum_{j=1}^{q}\beta_{j})^{2}}{
  
 with the assumption, the functions $\phi(z)=1-\sum_{i=1}^{max(p,q)}\alpha_{i}z^{i}$ and $\varphi(z)=1-\sum_{j=1}^{max(p,q)}\beta_{j}z^{j}$ have no common roots. $\hat{E}(\varepsilon_t^{4})=\sum_{t=1}^{n}\hat{\varepsilon}_{t}^{4}/n$ is a nonparametric estimator of $\varepsilon_{t}^{4}$ \citep{Feng2004}.
 
-This method starts from the asymptotic optimal bandwidth $b_{0}= Cn^{-1/5}$ with C=0.5.
+This method starts from the asymptotic optimal bandwidth $b_{0}= Cn^{-1/5}$ with C=0.5, then follow j-th iteration process. In the j-th iteration: step 1, calculating $\hat{v}$  and $\hat{\theta}$  with the bandwidth $b_{j-1}$  at first; step 2, calculating $\hat{E}(\varepsilon^{4})$ and $\hat{I}(v)^{2}$  with   $\hat{I}(v)^{2} = \frac{1}{n}\sum_{t=n_{1}}^{n_{2}}\hat{v}(x_{t})^{2}$, where $n_{1}$  and $n_{2}$ denote the integer part of na and n(1-a) respecyively, in which [a, 1-a] is the compacted support of the mean integrated squared error (MISE). In this calculation, the selected bandwidth is $b_{\varepsilon,j}=b_{v,j}=b_{j-1}^{5/4}$; step 3, calculating $\hat{c}_{f}$  from $\hat{\theta}$  and $\hat{E}(\varepsilon^{4})$; step 4, calculating $\hat{I}((v'')^{2})$, where $\hat{v''}$  is a kernel estimator of   $v''$  with $\hat{I}((v'')^{2})= \frac{1}{n}\sum_{t=n_{1}}^{n_{2}}\hat{v}''(x_{t})^{2}$, in which $\hat{v}''$ is obtained by using the bandwidth $b_{d,j}=b_{j-1}^{5/7}$ . Step 5, improve $b_{j-1}$  by 
+\[ b_{A} =(2\pi \hat{c}_{f} \frac{R(K)}{I^{2}(K)}\frac{\hat{I}(v^{2})}{\hat{I}((v'')^2)})^{\frac{1}{5}}n^{-\frac{1}{5}}; \]
 
-Then follow j-th iteration process. In the j-th iteration, $\hat{v}$  and $\hat{\theta}$  should be calculated with the bandwidth $b_{j-1}$  at first. Step 2, calculate $\hat{E}(\varepsilon^{4})$ and $\hat{I}(v)^{2}$  with   $\hat{I}(v)^{2} = \frac{1}{n}\sum_{t=n_{1}}^{n_{2}}\hat{v}(x_{t})^{2}$, where $n_{1}$  and $n_{2}$ denote the integer part of na and n(1-a) respecyively, in which [a, 1-a] is the compacted support of the mean integrated squared error (MISE). In this calculation, the selected bandwidth is $b_{\varepsilon,j}=b_{v,j}=b_{j-1}^{5/4}$ . Step 3, calculate $\hat{c}_{f}$  from $\hat{\theta}$  and $\hat{E}(\varepsilon^{4})$ . Step 4, calculate $\hat{I}((v'')^{2})$, where $\hat{v''}$  is a kernel estimator of   $v''$  with $\hat{I}((v'')^{2})= \frac{1}{n}\sum_{t=n_{1}}^{n_{2}}\hat{v}''(x_{t})^{2}$, in which $\hat{v}''$ is obtained by using the bandwidth $b_{d,j}=b_{j-1}^{5/7}$ . Step 5, improve $b_{j-1}$  by 
-\[ b_{A} =(2\pi \hat{c}_{f} \frac{R(K)}{I^{2}(K)}\frac{\hat{I}(v^{2})}{\hat{I}((v'')^2)})^{\frac{1}{5}}n^{-\frac{1}{5}} \].
+step 6, setting $j=j+1$ and repeating the iteration until  a) convergence is reached, where the condition $b_{j} - b_{j-1} <1/n$  is used as a criterion for the convergence of $\hat{b}$ ; or b) a given maximal number of iterations has been reached, where the maximal number of iterations is put to be twenty. 
 
-Finally, increase j by one and repeat the second part until convergence is reached, where the condition $b_{j} - b_{j-1} <1/n$  is used as a criterion for the convergence of $\hat{b}$ ; or a given maximal number of iterations has been done, where the maximal number of iterations is put to be twenty. Put $\hat{b} = b_{j}$. The asymptotic performance of $\hat{b}$ is quantified by $(\hat{b}-b_{A})/b_{A}=O_{p}(n^{-2/7}+O_{p}(n^{-1/2})$.
+Finally, outputting $\hat{b} = b_{j}$. The asymptotic performance of $\hat{b}$ is quantified by $(\hat{b}-b_{A})/b_{A}=O_{p}(n^{-2/7}+O_{p}(n^{-1/2})$.
 
 The plug-in estimator of the bandwidth has much lower variability than Cross- Validation for a broad variety of situations, including nonsmooth functions \citep{Gasser1991,Feng2004}.
 
@@ -168,7 +168,7 @@ Denoting $r_{t}= Y_t-\mu,t=1, \ldots,n$ is the logarithmic returns from an asset
 r_{t} = \sigma(x_t)\varepsilon_{t},
 \end{equation}
 
-where $\sigma(x_t)$ is a smooth scale function and $\sigma(x_t) >0$; $x_t = t/n$ is the rescaled time;  $\varepsilon_{t}$ is the rescaled process, which follows the parametric APARCH model with i.i.d. random variables $\eta $and are the conditional variance of the rescaled process $h_{t}$.
+where $\sigma(x_t)$ is a smooth scale function and $\sigma(x_t) >0$; $x_t = t/n$ is the rescaled time;  $\varepsilon_{t}$ is the rescaled process. The conditional variance of the rescaled process $h_{t}$ follows the parametric APARCH model:
     
 
 \begin{equation}
@@ -176,7 +176,7 @@ h_{t}^{\delta/2} = \omega + \sum_{i=1}^{p} \alpha_{i}(|\varepsilon_{t-i}|-\gamma
 \end{equation}
 
 where $\omega>0, \delta\geq0, \alpha_{i}\geq0, i=1, \ldots, p, -1<\gamma_{i}<1, i=1, \ldots, p, \beta_{j}\geq0.j=1, \ldots, q$.
-The same as introduced in Section \ref{secGarchmodel}, the parametric component should satisfy the assumptions of the parametric APARCH model, such as $\sum\alpha_{i} + \sum\beta_{j}<1 $, etc. $\gamma$ is the leverage parameter and $\delta$  is the parameter for the power term \citep{Ding1993}.
+The same as introduced in Section \ref{secGarchmodel}, the parametric component should satisfy the assumptions of the parametric APARCH model, such as $\sum\alpha_{i} + \sum\beta_{j}<1 $ and etc. $\gamma$ is the leverage parameter and $\delta$  is the parameter for the power term \citep{Ding1993}.
 
 The semi-parametric model provides us a tool to decompose financial risk into an unconditional component $\sigma(x_t)$ , a conditional component $h_{t}^{1/2}$  and the i.i.d. innovations $\eta_{t}$.
 
@@ -184,7 +184,22 @@ The reason to use semi-parametric APARCH model rather than the para-metric APARC
 
 \subsection{ Estimation of the semi-parametric APARCH model}
 
-In this model the scale function $v(x)$ is estimated from $|r_t|^d$  with d=1, instead of ob-tained by taking the square root of $\hat{•v}^2(x)$ , which is estimated from $r_t^2$ . The reason of d=1 is that ensure the existence of the fourth order moment of $\varepsilon_{t}$. However, the scale function estimated from $|r_t|$ is an estimate of another function rather than v(x). Denote the estimated function g(x). Let $c_1=E(|\varepsilon_{t}|)\neq 1$ . Then we have  $g(x)=c_1v(x)$ and $v(x)=g(x)/c_1$ . As follows the local linear estimation is used to estimate the scale function.
+From the above discussion of kernel regression we can see that, in order to get exact estimation, the sample volume should be larger enough, $n\longrightarrow\infty$. Then  $b\longrightarrow0$ and $nb\longrightarrow\infty$. However, the bias is of the order $b^2$ . Therefore, the estimation at the boundary has large bias, which may result in a larger selected bandwidth. This is the called “boundary problem” \citep{Eubank1993}.
+
+
+In this case, the local polynomial regression is applied. The mean idea of the LP regres-sion is that, $v(x)$ is estimated by using a weighted polynomial. Firstly, $v(x)$ is assumed $(p+1)$ times continuously differentiable, where  $p\geq1$. Around a point $x_0$, there is 
+\[v(x)=v(x_0)+v'(x_0)(x-x_0)+1/2v''(x_0)(x-x_0)^2+...+1/p!v^{(p)}(x_0)(x-x_0)^p+O[(x-x_0)^{p+1}].\]
+Then $\hat{\alpha}_0(x_0)$, $\hat{\alpha}_1(x_0)$, $\hat{\alpha}_2(x_0)$,..., $\hat{\alpha}_p(x_0)$ can be obtained by minimizing the locally weighted least squares 
+\[Q(x_0)= \sum_{i=1}^n[r_i-\alpha_0(x_0)-\alpha_1(x_0)(x_i-x_0)-\alpha_2(x_0)(x_i-x_0)^2-...-\alpha_p(x_0)(x_i-x_0)^p]^2K(\frac{x_i-x_0}{b})\]
+
+with a kernel $K(u)$. An estimator of $v^{(t)}(x_0)$ can be written as $\hat{v}^{(t)}(x_0)=t!\hat{\alpha_t}(x_0)$ for $t\leq p$ by Taylor’s formula (Fan 1993). Then the asymptotic bias and variance are defined by
+\[E [ \hat {v}^{(t)}(x_0)-v^{(t)}(x_0)]\approx b^{(k-t)}\frac{v^{(t)}(x_0)\beta}{k!}\]
+and
+\[var[\hat{{v}^(t)(x_0)}]= \frac{nb^{1+2t}}{h},\]
+
+respectively, where $\beta\neq0$ is a constant. The bias at the boundary stays automatically of the same order as in the interior, without use of specific boundary kernels. This method can solve the boundary problem partly.
+
+There is also another different from the kernel regression in this case. The scale function $v(x)$ is estimated from $|r_t|^d$  with d=1, instead of  taking the square root of $\hat{•v}^2(x)$ , which is estimated from $r_t^2$ . The reason of setting d=1 is that ensuring the existence of the fourth order moment of $\varepsilon_{t}$. However, the scale function estimated from $|r_t|$ is an estimation of another function $g(x)$ rather than $v(x)$. Letting $c_1=E(|\varepsilon_{t}|)\neq 1$ , we have  $g(x)=c_1v(x)$ and $v(x)=g(x)/c_1$. Then the local linear estimation is used to estimate the scale function.
 
 The local linear estimator  $\hat{g}(x)=\hat{a}_0$ at $0\leq x \leq 1$  can be obtained by minimizing
 
@@ -192,54 +207,44 @@ The local linear estimator  $\hat{g}(x)=\hat{a}_0$ at $0\leq x \leq 1$  can be o
 Q=\sum_{t=1}^{n}[|r_t|-a_0-a_1(x_t-x)]^2K(\frac{x_t-x}{b}).
 \end{equation}
 
-The optimal bandwidth for estimating $g(x)$ is different to that for estimating $v^2(x)$   from $r_t^2$ . In this method a fully data-driven algorithm is used, where the iterative plug-in idea, which is introduced above, adapted to selected b in the Q function with a starting bandwidth, which is selected by the cross-validation method.
-Sometimes, the local linear estimator may result in negative estimation, when sample size is small and a small bandwidth is selected. To ensure the non-negativity, the final estimator  $\hat{g}_f(x)$ is assumed to be $\hat{g}_f(x)=|\hat{g}(x,d)|$ . Let $\hat{\varepsilon}_{1,t}=r_t/\hat{g}_f(x)\approx c^{-1}\hat{\varepsilon}$  and $E(\varepsilon_t^4)$ is assumed to be finite. Then the consistent estimate of   is
+The optimal bandwidth for estimating $g(x)$ is different from the one for estimating $v^2(x)$. In this method a fully data-driven algorithm is used, which is the adapted iterative plug-in idea with a starting bandwidth selected by the cross-validation method. When sample size is small and a small bandwidth is selected, the local linear estimator may lead to negative results. To ensure the non-negativity, the final estimator  $\hat{g}_f(x)$ is assumed to be $\hat{g}_f(x)=|\hat{g}(x,d)|$ . Letting $\hat{\varepsilon}_{1,t}=r_t/\hat{g}_f(x)\approx c^{-1}\hat{\varepsilon}$  and assuming $E(\varepsilon_t^4)$ is  finite, then the consistent estimate of is
+\[\hat{c}_1=[\frac{1}{n}\sum_{t=1}^n\hat{\varepsilon}_{1,t}^2]^{-1/2}.\]
 
-\begin{equation}
-\hat{c}_1=[\frac{1}{n}\sum_{t=1}^n\hat{\varepsilon}_{1,t}^2]^{-1/2}.
-\end{equation}
+the estimation of $v(x)$ can be obtained by
+\[\hat{v}(x_t)=\hat{c}_1^{-1}\hat{g}_f(x_t).\]
 
-Then the estimate of $v(x)$ can be obtained by
+Then the estimation of $\varepsilon_t$ can defined as $\hat{\varepsilon}_t=r_t/\hat{v}(x_t)$ . The unknown parameters of a chosen APARCH model can be estimated by  approximate conditional maximal likelihood method. AIC or BIC can be used to select a suitable model \citep{FengYuanhua;Sun2013}.
 
-\begin{equation}
-\hat{v}(x_t)=\hat{c}_1^{-1}\hat{g}_f(x_t).
-\end{equation}
+\section{Semi-EGARCH and Semi-CGARCH models}
+Based on the semi-parametric GARCH and APARCH models above, the semi-parametric EGARCH and CGARCH models can be defined, which are not introduced in other literatures yet.
 
-Then the estimate of $\varepsilon_t$ can defined as $\hat{\varepsilon}_t=r_t/\hat{v}(x_t)$ . The unknown parameters of a chosen APARCH model can be estimated by using the approximate conditional maxi-mal likelihood method. The method AIC or BIC can be used to select a suitable model \citep{}.
+The general definition of the semi-EGARCH and semi-CGARCH models, the same as the semi-APARCH model, is composed of the scale function and the conditional heteroscedasticity:
 
-\section{Semi-parametric EGARCH model}
-According to the above discussions of semi-parametric GARCH and APARCH models, the semi-parametric EGARCH model can be defined as follows:
 \begin{equation}
 r_{t} = \sigma(x_{t})\varepsilon_{t},
 \end{equation}
-where $r$ is the return process; $\sigma(x_{t})>0$ is the scale function; $x_{t}$  are the rescaled times; and  $\varepsilon_{t}$ are the standard residuals, which follows the parametric exponential GARCH model.
+where $r$ is the return process; $\sigma(x_{t})>0$ is the scale function; $x_{t}$  are the rescaled times; and  $\varepsilon_{t}$ are the standard residuals with the zero mean and unit variance. 
+
+Different from the semi-APARCH model, the conditional variance of   follows the parametric exponential GARCH model, which was introduced by Nelson in 1991:
 
 \begin{equation}
-ln(h_{t}) = \omega + \sum_{i=1}^{p}\alpha_{i}g(\eta_{t-i})+ \sum_{j=1}^{q}\beta_{j}ln(h_{t-j}),
-\end{equation}
-where $\alpha$ and $\beta$ are real, non-stochastic and scalar sequences; $g(\eta_{t})$ is a i.i.d. random sequences with zero mean, which is defined as follows:
-\begin{equation}
-g(\eta_{t})\equiv\theta\eta_{t}+\gamma[|\eta_{t}|-E|\eta_{t}|].
-\end{equation}
-The assumptions of this parametric component approximate to the parametric exponential GARCH model \citep{Nelson1991}.
-\section{Semi-parametric CGARCH model}
-where $r$ is the return process; $\sigma(x_{t})>0$ is the scale function; $x_{t}$  are the rescaled times; and  $\varepsilon_{t}$ are the standard residuals, The semi-parametric CGARCH model can written as
-\begin{equation}
-r_{t} = \sigma(x_{t})\varepsilon_{t},
+ln(h_t) =\omega + \sum_{i=1}^p(\alpha_i\eta_{t-i}+\gamma(|\eta_{t-i}|-E|\eta_{t-i}|))+\sum_{j=1}^q\beta_jln(h_{t-j}).
 \end{equation}
 
-where  $\varepsilon_{t}$ is assumed to follow the parametric component GARCH model,
+The assumptions of this parametric component approximate to the parametric exponential GARCH model.
+
+For semi-CGARCH model, the general definition is also the same as the equation (3.17). However, the conditional variance $h_t$ is assumed to follow the parametric component GARCH model, which is introduced by Lee and Engle in 1999:
+
 \begin{equation}
 h_{t}=q_{t}+\sum_{i=1}^{p}\alpha_{i}(\varepsilon_{t-i}^{2}-q_{t-i}) + \sum_{j=1}^{q}\beta_{j}(h_{t-j}-q_{t-j}),
 \end{equation}
 
 \begin{equation}
-q_{t} = \omega + \rho q_{t-1}  +\varphi(\varepsilon_{t-1}^{2}-h_{t-1})
+q_{t} = \omega + \rho q_{t-1}  +\varphi(\varepsilon_{t-1}^{2}-h_{t-1}),
 \end{equation}
 
-In which $q_{t}$ is the permanent component of the conditional variance and $(h_{t-j} - q_{t-j})$  is the transitory component of the conditional variance; and the parametric specification’s assumption of stationary $0<(\alpha + \beta) < \rho <1, 0<\varphi<\beta, \alpha >0, \beta>0, \omega >0 $ should be satisfied \citep{0-19-829683-5,Ghalanos2014}.
+in which $q_{t}$ is the permanent component of the conditional variance and $(h_{t-j} - q_{t-j})$  is the transitory component of the conditional variance; and the parametric specification’s assumption of stationary $0<(\alpha + \beta) < \rho <1, 0<\varphi<\beta, \alpha >0, \beta>0, \omega >0 $ should be satisfied \citep{0-19-829683-5,Ghalanos2014}.
 
-\section{Conclusion}
 
 %
 %\section{Tables and Figures Sample}
