@@ -5,7 +5,6 @@
 \input{Constants} % Konstanten laden, z.B.: Begriffe wie Bachelor-Arbeit, Bachelor of Science, etc.
 
 \usepackage[american]{babel}
-
 %\usepackage[ansinew]{inputenc} %Für deutsche Kodierung von Buchstaben ä,ö,ü,ß unter Windows (für Unix: 'latin1' statt 'ansinew') ansonsten muss man Folgendes schreiben:
 % \"a für ä, \"o für ö, \"u für ü, \ss für ß.
 %\usepackage{german} % unter anderem für bessere Silbentrennung
@@ -35,7 +34,6 @@
 %\floatname{sourcecode}{Code-Fragment}
 %\newfloat{sourcecode}{htbp}{loc}[chapter] % neue Gleitumgebung für Quellcode
 
-
 \input{MathDefinitions} % einige mathematische Hilfskonstrukte und Vereinfachungen
 
 \input{PageLayout} % Layout der Seiten, z.B. Kopf- und Fußzeilendefinition
@@ -45,7 +43,6 @@
 \ifpdfoutput
 { 
 % PDF wird genutzt
-	
 	\usepackage[pdftex]{graphicx,color}
 	% eigene Farben für Links:
   %\definecolor{myLinkColor}{rgb}{0,0,.5}
@@ -54,7 +51,7 @@
   %\definecolor{myURLColor}{rgb}{0,0,1}
   % Setzen aller Link-Farben auf Schwarz
   \definecolor{myLinkColor}{rgb}{0,0,0}
-  \definecolor{myCiteColor}{rgb}{0,.5,0}
+  \definecolor{myCiteColor}{rgb}{0,0,0}
   \definecolor{myFileColor}{rgb}{0,0,0}
   \definecolor{myURLColor}{rgb}{0,0,0}
   \usepackage[pdftex,%
@@ -74,7 +71,7 @@
   						%pdfpagelayout={TwoColumnRight}% zweiseitiges fortlaufendes Layout
   						]{hyperref}
   \pdfcompresslevel=9 %Kompressionslevel fuer Text und Grafiken
-  \DeclareGraphicsExtensions{.pdf, .png, .jpg, .tif, .mps} % Dateiendungen für Grafikdateien, geordnet nach Priorität für automatische Auswahl der richtigen Datei, falls Endung nicht angegeben
+  \DeclareGraphicsExtensions{.pdf, .png, .jpg, .tif, .mps, .ps} % Dateiendungen für Grafikdateien, geordnet nach Priorität für automatische Auswahl der richtigen Datei, falls Endung nicht angegeben
 }
 {
 % Kein PDF

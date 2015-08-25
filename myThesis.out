@@ -1,31 +1,31 @@
 \BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 1
 \BOOKMARK [0][-]{chapter.2}{2 Parametric models}{}% 2
-\BOOKMARK [1][-]{section.2.1}{2.1 Parametric GARCH model}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.1}{2.1 The GARCH model}{chapter.2}% 3
 \BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Definitions and basic properties}{section.2.1}% 4
 \BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Estimation of GARCH model}{section.2.1}% 5
-\BOOKMARK [1][-]{section.2.2}{2.2 Parametric asymmetric power ARCH model}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.3}{2.3 Parametric exponential GARCH model}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.4}{2.4 Parametric component GARCH model}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.2}{2.2 The asymmetric power ARCH model}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{2.3 The exponential GARCH model}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{2.4 The component GARCH model}{chapter.2}% 8
 \BOOKMARK [0][-]{chapter.3}{3 Semi-parametric models}{}% 9
-\BOOKMARK [1][-]{section.3.1}{3.1 Semi-parametric GARCH model}{chapter.3}% 10
-\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Definition of semi- parametric GARCH model}{section.3.1}% 11
-\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Estimation of semi-parametric GARCH model}{section.3.1}% 12
+\BOOKMARK [1][-]{section.3.1}{3.1 Semi-GARCH model}{chapter.3}% 10
+\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Definition of Semi-GARCH model}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Estimation of Semi-GARCH model}{section.3.1}% 12
 \BOOKMARK [2][-]{subsection.3.1.3}{3.1.3 Asymptotic properties of }{section.3.1}% 13
 \BOOKMARK [2][-]{subsection.3.1.4}{3.1.4 The selection of bandwidth}{section.3.1}% 14
-\BOOKMARK [1][-]{section.3.2}{3.2 Semi-parametric APARCH model}{chapter.3}% 15
-\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Definition of semi-parametric model}{section.3.2}% 16
+\BOOKMARK [1][-]{section.3.2}{3.2 Semi-APARCH model}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Definition of Semi-APARCH model}{section.3.2}% 16
 \BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Estimation of the semi-parametric APARCH model}{section.3.2}% 17
 \BOOKMARK [1][-]{section.3.3}{3.3 Semi-EGARCH and Semi-CGARCH models}{chapter.3}% 18
 \BOOKMARK [0][-]{chapter.4}{4 Empirical Example}{}% 19
 \BOOKMARK [1][-]{section.4.1}{4.1 Data and Methodology}{chapter.4}% 20
 \BOOKMARK [1][-]{section.4.2}{4.2 Empirical Result of Allianz}{chapter.4}% 21
-\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Comparing the long-term risk}{section.4.2}% 22
-\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Comparing the conditional behaviors}{section.4.2}% 23
-\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 Comparing the model at the given time points and with daily data}{section.4.2}% 24
-\BOOKMARK [1][-]{section.4.3}{4.3 Semi-parametric application in BMW}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.3.1}{4.3.1 Comparing the long-term risk}{section.4.3}% 26
-\BOOKMARK [2][-]{subsection.4.3.2}{4.3.2 Comparing the conditional behaviors}{section.4.3}% 27
-\BOOKMARK [2][-]{subsection.4.3.3}{4.3.3 Comparing the model at the given time points and with daily data}{section.4.3}% 28
-\BOOKMARK [1][-]{section.4.4}{4.4 Comparison of the empirical results of the two companies}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Analysis of the long-term risk}{section.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Analysis of the conditional behaviors}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 Comparing the models at the given time points and with daily data}{section.4.2}% 24
+\BOOKMARK [1][-]{section.4.3}{4.3 Empirical Result of BMW}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.3.1}{4.3.1 Analysis of the long-term risk}{section.4.3}% 26
+\BOOKMARK [2][-]{subsection.4.3.2}{4.3.2 Analysis of the conditional behaviors}{section.4.3}% 27
+\BOOKMARK [2][-]{subsection.4.3.3}{4.3.3 Comparing the models at the given time points and with daily data}{section.4.3}% 28
+\BOOKMARK [1][-]{section.4.4}{4.4 Comparing the empirical results of the two companies}{chapter.4}% 29
 \BOOKMARK [0][-]{chapter.5}{5 Conclusion}{}% 30
-\BOOKMARK [0][-]{appendix*.9}{Reference}{}% 31
+\BOOKMARK [0][-]{appendix*.8}{Reference}{}% 31

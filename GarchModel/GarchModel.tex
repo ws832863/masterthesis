@@ -5,35 +5,34 @@ Fama suggested that the financial market returns had the property of volatility 
 
 Different from the traditional models, ARCH model suggests that the conditional variance could change over time as a function of past errors with the unconditional variance remaining constant \citep{Engle1982}. ARCH model soon became an important tool of volatility measurement, because it improved the traditional model and fit reality better. However, there are some drawbacks in ARCH model. In practical applications of the ARCH model, a relatively long lag in the conditional variance equation is often required, which might lead to increase in complexity of estimating parameters and decrease the freedom degree. When the lag order is high, estimating a totally free lag distribution will often violate the constraint of non-negativity parameters. But the restrict condition is exactly needed in this model to ensure conditional variance to be non-negative \citep{Bollerslev1986}. Therefore, there are many economists tried to improve ARCH models. Among these researches, the generalized ARCH (GARCH) model, which is introduced by Bollerslev (1986), is the most widely well known one with a better framework to study time-varying volatility in financial markets. 
 
-\section{Parametric GARCH model}
+\section{The GARCH model}
 GARCH model added the lagged conditional variances to ARCH model, so that it has a longer memory and a more flexible lag structure than ARCH model.
 
 \subsection{Definitions and basic properties}
-In GARCH model, $F_{t-1}$ denote the set of the past information. The GARCH process is presented in \ref{equ2.1},
+In GARCH model, $F_{t-1}$ denote the set of the past information. The GARCH process is presented in \ref{equ2.1}:
 
 \begin{equation} 
 \label{equ2.1}
-	\varepsilon_t =  \eta_t h_t^{1/2}    \qquad    \varepsilon_{t}|F_{t-1}\sim N(0,h_{t})_,
+	\varepsilon_t =  \eta_t h_t^{1/2},    \qquad    \varepsilon_{t}|F_{t-1}\sim N(0,h_{t})_,
  \end{equation} 
  
 in which $\varepsilon_t$ is a random variables; $\eta_t$ are i.i.d. random  variables with zero mean and unit variance; $h_{t}$ means the conditional variance of $\varepsilon_{t}$ and is defined as follow:
 
-\begin{equation} 
+\begin{equation}
+\label{equ2.2} 
 h_t = \omega + \sum_{i=0}^p \alpha_i \varepsilon_{t-1}^2 + \sum_{j=1}^q\beta_j h_{t-j},
 \end{equation} 
 
 where $\omega>0$ is the variances intercept parameter; $p>0$ is the order of ARCH parameters; $q \geq 0$ is the order of GARCH parameters; $\alpha$ and $\beta$ ( $ \alpha_i \geq 0, i=1, \dots ,p; \beta_j \geq 0, j=1,\dots,q$) are two vectors of unknown parameters respectively \citep{Bollerslev1986}.
 
-From the model we can see that, GARCH model contains the lagged conditional variances in addition to ARCH model. When  $q=0$, the process is ARCH model; if $ p = q = 0$, this process is a simple white noise; while $\sum_{i=1}^p\alpha_i <1$, this process is an infinite dimensional ARCH  $(\infty)$. This means that ARCH is a special form of GARCH process. Most of the cases, a high order ARCH model can be replaced by a low order GARCH model without breaking the constraint of non-negativity by estimating too many parameters. For example, In the application of ARCH (p) model, sometimes the value of p is very high; but for GARCH (p, q) model, $p=1, q=1$ are enough to achieve the same outcome \citep{Engle1986}.
+From the equation \ref{equ2.2} we can see that, GARCH model contains the lagged conditional variances in addition to ARCH model. When  $q=0$, the process is ARCH model; if $ p = q = 0$, this process is a simple white noise; while $\sum_{i=1}^p\alpha_i <1$, this process is an infinite dimensional ARCH  $(\infty)$. This means that ARCH is a special form of GARCH process. Most of the cases, a high order ARCH model can be replaced by a low order GARCH model without breaking the constraint of non-negativity by estimating too many parameters. For example, In the application of ARCH (p) model, sometimes the value of p is very high; but for GARCH (p, q) model, $p=1, q=1$ are enough to achieve the same outcome \citep{Engle1986}.
 
 
-In the paper from Engle, the stationary of GARCH model is introduced. As it is known, a process $\lbrace X_{t} \rbrace$  is weakly stationary,  if $i) E(X_{t}^{2}) < \infty$  for all  $t \in T$ ,$ ii) E(X_{t})$  and $cov(X_t,X_{t+s})$  are independent of $t$ for $s \in Z, t \in T$ \citep{Bougerol1992}.
-
-So the GARCH $(p,q)$ process with $E\left( \varepsilon_t \right) =0, Var(\varepsilon_t) = \omega(1-  \sum_{i=1}^p\alpha_i - \sum_{j=1}^q\beta_j )^{-1}$ and $cov(Y_t,Y_s)=0$ for $t \neq s$ is wide-sense stationary if and only if $\sum_{i=1}^p\alpha_i + \sum_{j=1}^q\beta_j < 1 $ \citep{Bollerslev1986}
+In the paper from Engle, the stationary of GARCH model is introduced. As it is known, a process $\lbrace X_{t} \rbrace$  is weakly stationary,  if $i) E(X_{t}^{2}) < \infty$  for all  $t \in T$ ,$ ii) E(X_{t})$  and $cov(X_t,X_{t+s})$  are independent of $t$ for $s \in Z, t \in T$ \citep{Bougerol1992}. So the GARCH $(p,q)$ process with $E\left( \varepsilon_t \right) =0, Var(\varepsilon_t) = \omega(1-  \sum_{i=1}^p\alpha_i - \sum_{j=1}^q\beta_j )^{-1}$ and $cov(Y_t,Y_s)=0$ for $t \neq s$ is wide-sense stationary if and only if $\sum_{i=1}^p\alpha_i + \sum_{j=1}^q\beta_j < 1 $ \citep{Bollerslev1986}.
 
 \subsection{Estimation of GARCH model}
 
-Usually, the maximum likelihood estimation is most widely used to estimate GARCH model. Besides the condition of stationary, to estimate GARCH model, a very important assumption is finite fourth-order moment, which ensures the existence of the squared returns variance. Assuming GARCH model is a normal process:
+There are many methods to estimate the GARCH model, such as the Maximum Likelihood Estimation (MLE), the Quaxi-Maximum Likelihood Estimation (QMLE) and the Least Absolute Deviation Estimation (LADE), etc. Usually, the maximum likelihood estimation, which is introduced in this work, is most widely used. Besides the condition of stationary, to estimate GARCH model, a very important assumption is finite fourth order moment, which ensures the existence of the squared returns variance. Assuming GARCH model is a normal process:
  
 \begin{equation}
 E(\varepsilon_t^4)=\frac{3\omega^2(1+\alpha_1+\beta_1)}{(1-\alpha_1-\beta_1)(1-\beta_1^2-2\alpha_1\beta_1-3\alpha_1^2)}_.
@@ -59,12 +58,12 @@ The maximum likelihood method is used by most of cases in GARCH family. Based on
 
 Although a simple GARCH model can solve the problem of the ARCH model with high-order linear declining lag structure, it also has some obvious drawbacks.  The two constraint conditions of GARCH model, parametric non-negativity and bounded, restrict its applicability. The assumption of non-negative parameters raises the difficulty of estimation. Also with this assumption, the GARCH model cannot well explain the asymmetry of volatility and leverage effects. In order to extend the application of GARCH model, many GARCH derivatives appeared aiming at different problems. For example, to explain the asymmetry of volatility, the exponential GARCH model (EGARCH) was proposed by Nelson \citep{Nelson1991}, and threshold GARCH (TGARCH) was suggested by Zakorian \citep{Zakoian1994}. Ding, Granger and Engle introduced the APARCH model \citep{Ding1993}, which are able to explain the leverage effects in financial market better. Engle and Lee defined the component GARCH (CGARCH) model to exactly interpret the shock influences to the long-run and the short-run volatility respectively \citep{0-19-829683-5}.
 
-\section{Parametric asymmetric power ARCH model}
+\section{The asymmetric power ARCH model}
 
 Generally, if a data series follows the normal distribution, we can characterize it by its first two moments. However, if the error of the data follows a non-normal distribution, then higher moments of skewness, kurtosis have to be applied, which describes the data beyond to adequately. In this instance, other power transformations appeared to be more appropriate than squared term \citep{McKenzie1999}. Ding, Granger and Engle (1993) further studied the autocorrelation of square returns and absolute returns based on GARCH model and Taylor model. It is found that, long lags between absolute returns are more correlated than the returns themselves for the return process \citep{stephen1986modelling}. Furthermore, $|r_{t}|^{d}$ has the largest autocorrelation when d is around 1, but smaller monotonically one when d deviates from 1. Based on this they imposed an asymmetric GARCH model, asymmetric power ARCH model, which enables the power of the heteroskedasticity equation to be estimated from the data.
 
 
-The parametric asymmetric power ARCH model is defined by
+The asymmetric power ARCH model is defined by
 
 \begin{equation}
 h_{t}^{\delta/2} = \omega + \sum_{i=1}^{p} \alpha_{i}(|\varepsilon_{t-i}|-\gamma_{i}\varepsilon_{t-i})^{\delta} + \sum_{j=1}^{q}\beta_{j}h_{t-j}^{\delta/2},
@@ -75,7 +74,7 @@ where $\omega>0, \delta\geq0, \alpha_{i}\geq0, i=1, \ldots, p, -1<\gamma_{i}<1, 
 This model exhibits a power transformation of the conditional standard deviation process, which can linearize nonlinear models. It also reveals the asymmetric absolute residuals, which can reflect the leverage effect of the stock market returns.
 
 
-In APARCH model, when $\gamma_{t}$ is conditional normal, and \[\frac{1}{\sqrt{2\pi}}\sum_{i=1}^{p}\alpha_{i} \lbrace\left(1 + \gamma_{i} \right)^\delta + (1-\gamma)^{\delta}\rbrace2^{\frac{\delta-1}{2}}\Gamma (\frac{\delta+1}{2}) + \sum_{j=1}^{q}\beta_{j}<1,\]
+In APARCH model, when $\gamma_{t}$ is conditional normal, and \[\frac{1}{\sqrt{2\pi}}\sum_{i=1}^{p}\alpha_{i} [\left(1 + \gamma_{i} \right)^\delta + (1-\gamma)^{\delta}]2^{\frac{\delta-1}{2}}\Gamma (\frac{\delta+1}{2}) + \sum_{j=1}^{q}\beta_{j}<1,\]
 which is the condition to ensure the existence of $Eh_{t}^{\delta/2}$ and $E|\varepsilon_{t}|^{\delta}$, then when $\delta\geq2$, $\varepsilon_t$   is covariance stationary (sufficient condition) \citep{Ding1993}.
 
 
@@ -104,11 +103,11 @@ When $\delta=1,\gamma_{i}\neq0$, a asymmetric Taylor/Schwert model is obtained, 
  with the covariance stationary condition for  $\varepsilon_{t}$, the same TS-GARCH model,as  $\sqrt{\frac{2}{\pi}} \sum_{i=1}^{p}\alpha_{i} + \sum_{j=1}^{\alpha}\beta_{j}<1$\citep{Zakoian1994}.
 
 
-\section{Parametric exponential GARCH model}
+\section{The exponential GARCH model}
 
-It is considered that, GARCH model has taken the focus on the magnitude matters of excess return, but ignored the information of directions. Moreover, it is proven by empirical evidence that the direction does impact on volatility. Especially for broad-based equity indices and bond market indices, it is observed that market declines forecast higher volatility than comparable market increases do \citep{Engle2001}. In addition, the estimated coefficients often violate the parameter restrictions in GARCH model. It is also found that the left tail of the returns distribution was fatter than the right one. The reason is generally considered as the asymmetric response of investors to “good news” and “bad news” \citep{Jondeau2003}. The existence of the asymmetric effect shows that there are some problems for the constraint condition for the  conditional variance. Nelson (1991) imposed the exponential GARCH model, which provides a good solution for the problems of GARCH. 
+It is considered that, GARCH model has taken the focus on the magnitude matters of excess return, but ignored the information of directions. Moreover, it is proven by empirical evidence that the direction does impact on volatility. Especially for broad-based equity indices and bond market indices, it is observed that market declines forecast higher volatility than comparable market increases do \citep{Engle2001}. In addition, the estimated coefficients often violate the parameter restrictions in GARCH model. It is also found that the left tail of the returns distribution was fatter than the right one. The reason is generally considered as the asymmetric response of investors to “good news” and “bad news” \citep{Jondeau2003}. The existence of the asymmetric effect shows that there are some problems for the constraint condition for the  conditional variance. Nelson imposed the exponential GARCH model in 1991, which provides a good solution for the problems of GARCH. 
 
-Instead of making $h_{t}$  a linear combination of positive random variables, EGARCH model ensure that $h_{t}$  remains nonnegative by making $ln(h_{t})$ linear. It does not need any restriction on the parameters to guarantee the positivity of the variance.
+EGARCH model ensure that $h_{t}$  remains nonnegative by making $ln(h_{t})$ linear. It does not need any restriction on the parameters to guarantee the positivity of the variance.
 
 The exponential GARCH model can be written as follows:
 
@@ -116,15 +115,15 @@ The exponential GARCH model can be written as follows:
 ln(h_t) =\omega + \sum_{i=1}^p(\alpha_i\eta_{t-i}+\gamma(|\eta_{t-i}|-E|\eta_{t-i}|))+\sum_{j=1}^q\beta_jln(h_{t-j}).
 \end{equation}
 
-In this model, $\gamma[|\eta_t|-E|\eta_t|]$ that define the size effect, and  $\alpha\eta_t$   that defines the sign effect of the shocks on volatility. The size effect is a typical ARCH effect, but the sign effect is asymmetrical. The value of $\alpha$ represents the existence of the asymmetry.  When $\alpha$ is not equal to 0, there is the asymmetric effect.  For example, the leverage effect, which has imposed by Black in 1976. When $\alpha<0$, the ``bad news'' and ``good news'' may cause the different influence of the volatility. The innovation in conditional variance is now positive (negative) when returns innovations are negative (positive).
+In this model, $\gamma[|\eta_t|-E|\eta_t|]$ that define the size effect, and  $\alpha\eta_t$   that defines the sign effect of the shocks on volatility. The size effect is a typical ARCH effect, but the sign effect is asymmetrical. The value of $\alpha$ represents the existence of the asymmetry.  When $\alpha$ is not equal to 0, there is the asymmetric effect.  For example, the leverage effect, which has imposed by Black in 1976. When $\alpha<0$, the ``bad news'' and ``good news'' may cause the different influence of the volatility. The innovation in conditional variance is now positive (negative) when returns innovations are negative (positive) \citep{Nelson1991}.
 
-According to the Theorem 2.1 from Nelson and the definition of the stationary, when $\gamma$  and $\theta$  do not equal to zero at the same time, the EGARCH process of order (1,1) is strictly stationary and ergodic if and only if $\alpha_1^2 < \infty$ and $|\beta_1|<1$ (reference). 
+According to the Theorem 2.1 from Nelson and the definition of the stationary, when $\gamma$  and $\theta$  do not equal to zero at the same time, the EGARCH process of order (1,1) is strictly stationary and ergodic if and only if $\alpha_1^2 < \infty$ and $|\beta_1|<1$. 
 
 The estimation of EGARCH model is mostly same as the estimation of GARCH model. The difference between them is that, in EGARCH model, the generalized error distribution (GED) is used. Because this distribution includes the normal as special case as well as many other distributions, some of which are fatter tailed than the normal one and some are thinner tailed; and when the process is strictly stationary and the distribution of  $\eta_t$ is not too fat tailed, $h_t$ and $\varepsilon_t$ have finite unconditional moments of arbitrary order \citep{Nelson1991}.
 
-\section{Parametric component GARCH model}
+\section{The component GARCH model}
 
-The traditional GARCH model has not distinguished the long-term and the shore-term component. However, it is known that the stock prices always fluctuate around an average value. This phenomenon is called mean-revert. It is also found that mean-revert of short-term volatility is more rapid than for the long-term one and the market volatility must have enough persistence to influence the stock returns in the long-run \citep{XinzhongXuandStephenJ.Taylor1994}. In order to explain this different response between short-term and long-term, Engle and Lee (1999) imposed component GARCH model. In this model, the conditional variance is decomposed into a permanent and transitory component. So that the model can be used to investigate the long-run and short-run movements of volatility affecting securities.
+The traditional GARCH model has not distinguished the long-term and the shore-term component. However, it is known that the stock prices always fluctuate around an average value. This phenomenon is called mean-revert. It is also found that mean-revert of short-term volatility is more rapid than for the long-term one and the market volatility must have enough persistence to influence the stock returns in the long-run \citep{XinzhongXuandStephenJ.Taylor1994}. In order to explain this different response between short-term and long-term, Engle and Lee (1999) imposed component GARCH model. In this model, the conditional variance is decomposed into permanent and transitory component. So that the model can be used to investigate the long-run and short-run movements of volatility affecting securities.
 
 The component GARCH model is defined by
 
@@ -132,11 +131,12 @@ The component GARCH model is defined by
 h_{t}=q_{t}+\sum_{i=1}^{p}\alpha_{i}(\varepsilon_{t-i}^{2}-q_{t-i}) + \sum_{j=1}^{q}\beta_{j}(h_{t-j}-q_{t-j}),
 \end{equation}
 
+and
 \begin{equation}
-q_{t} = \omega + \rho q_{t-1}  +\varphi(\varepsilon_{t-1}^{2}-h_{t-1})
+q_{t} = \omega + \rho q_{t-1}  +\varphi(\varepsilon_{t-1}^{2}-h_{t-1}),
 \end{equation}
 
-where $q_{t}$ the permanent component of the conditional variance and $(h_{t-j}-q_{t-j})$ is the transitory component of the conditional variance \citep{0-19-829683-5}; \citep{Ghalanos2011}. 
+where $q_{t}$ the permanent component of the conditional variance and $(h_{t-j}-q_{t-j})$ is the transitory component of the conditional variance \citep{0-19-829683-5,Ghalanos2011}. 
 
 For the CGARCH (1,1) model, $(\alpha_1 +  \beta_1)$ is the mean-revert of $s_{t}$. In terms of economy, the smaller the mean-reverting rate, the less persistent the expected volatility to market shocks in the past. That means, when the market receives the information of shocks, volatility responses quickly but has lower persistence. If $0<(\alpha_1 +  \beta_1)<1$, the mean-reverts of short-run volatility component is zero at a geometric rate of  $(\alpha_1 +  \beta_1)$;  If $0<(\alpha_1 +  \beta_1)\ll1$, the impact of volatility shocks on the short-run volatility component is short-lived. The parameters $\rho$  is used to examine the persistence of shock impacts on the long-run component. If $0<\rho<1$,  the long-run volatility component follows an AR process, and will converge to a constant level defined by $\omega/(1-\rho)$. When  $\rho$ is extremely close to 1, usually between 0.99 and 1, the long-run volatility component converge to $\omega$ very slowly; If $0<(\alpha_1 +  \beta_1)<\rho<1$, the impact of volatility shocks on the long-run volatility component diminish as well but be more persistent than that of the short-run component. $\varphi$ shows the sensitivity of the  long-run component to volatility shocks. $\alpha$ expresses shows the sensitivity of the  short-run component to volatility shocks. When $\alpha\geq\varphi$, the immediate impact of volatility shocks on the long-run component would be smaller than that on the short-run component.
 

@@ -71,6 +71,12 @@ Fan, J. (1991).
 \newblock {Asymptotic normality for deconvolution kernel density estimators}.
 \newblock {\em Journal of statistical}, 53(1):97--110.
 
+\bibitem[Fan et~al., 1997]{fan1997}
+Fan, J., Gasser, T., and Gijbels, I. (1997).
+\newblock Local polynomial regression: Optimal kernels and asymptotic minimax
+  efficiency.
+\newblock {\em Ann. Inst. Statist. Math.}, 49:79--99.
+
 \bibitem[Fan and Truong, 1993]{Fan1993}
 Fan, J. and Truong, Y.~K. (1993).
 \newblock {Nonparametric Regression with Errors in Variables}.
@@ -188,9 +194,8 @@ Tsai, K.~T., Lih, J.~S., and Ko, J.~Y. (2012).
 Wuertz, D. and Chalabi, Y. (2013).
 \newblock {Rmetrics - Autoregressive Conditional Heteroskedastic Modelling}.
 
-\bibitem[{Xinzhong Xu and Stephen J.Taylor},
-  1994]{XinzhongXuandStephenJ.Taylor1994}
-{Xinzhong Xu and Stephen J.Taylor} (1994).
+\bibitem[Xu and Taylor, 1994]{XinzhongXuandStephenJ.Taylor1994}
+Xu, X. and Taylor, S.~J. (1994).
 \newblock {The term structure of volatility implied by foreign exchange
   options}.
 \newblock 29(1):57--74.
