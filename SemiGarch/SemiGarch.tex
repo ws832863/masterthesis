@@ -1,4 +1,4 @@
-\chapter{Semi-parametric models}\label{semiparaGarch}
+\chapter{Semi-parametric volatility models}\label{semiparaGarch}
 
 The GARCH model has many advantages. The function form is accessible, and parameters could be easily estimated. If the model assumptions were correct, the estimation is consistent with reality. However, the drawbacks of parametric models are more disgusting. Firstly, a preselected parametric model may not fit unexpected features, due to too restricted or too low dimensional. Secondly, sometimes the regression function seems to be too complicate or difficult to be defined. Thirdly, because different sequence will be witnessed when different conditional distribution is selected in the process of prediction by using parametric models, there will most possibly exist the problem of misspecification, which may result in a excessively high model bias and loss of efficiency, unless the assumed function perfectly matches the true error distribution \citep{Di2011}.
 
@@ -104,7 +104,7 @@ b=(\frac{R(K)}{I^{2}(K)R(V''(x))})^{1/5}n^{-1/5}.
 \end{equation}
 When the bandwidth $b=n^{-1/5}$, we can get $\hat{v}(x)=v(x)[1+O_{p}(n^{-2/5})]$  and $MISE=O(n^{-4/5})$ \citep{Gasser1984,Fan1991}.
 
-\subsection{The selection of bandwidth}
+\subsection{The selection of the bandwidth}
 Applying the estimator $\hat{v}$  requires the specification of kernels and bandwidth. Optimal kernels have been obtained analytically. The selection of bandwidth becomes the most important problem when applying nonparametric regression estimators such as kernel estimators. The regression works well, only if the bandwidth is suitable. Because the kernel estimation uses the points around $x_{0}$  to estimate the scale function, a kernel regression is usually biased. The larger the bandwidth, the larger the square bias because further points from $x_{0}$ are used, but the smaller the variance because more observations are used for estimation. The bandwidth should be optimized to balance the variance and bias. The optimal bandwidth is the one, which can minimize the mean squared error (MSE) or mean integrated squared error (MISE) \citep{Gasser1991}. 
 
 There are many methods available to optimize bandwidth, e.g. Cross-Validation (CV), Generalized CV (GCV), plug-in and etc. In this paper, CV and plug-in will be introduced in detail.
@@ -153,12 +153,12 @@ This method starts from the asymptotic optimal bandwidth $b_{0}= Cn^{-1/5}$ with
 
 step 6, setting $j=j+1$ and repeating the iteration until  a) convergence is reached, where the condition $|b_{j} - b_{j-1}| <1/n$  is used as a criterion for the convergence of $\hat{b}$ ; or b) a given maximal number of iterations has been reached, where the maximal number of iterations is put to be twenty. 
 
-Finally, outputting $\hat{b} = b_{j}$. The asymptotic performance of $\hat{b}$ is quantified by $(\hat{b}-b_{A})/b_{A}=O_{p}(n^{-2/7}+O_{p}(n^{-1/2})$.
+Finally, outputting $\hat{b} = b_{j}$. The asymptotic performance of $\hat{b}$ is quantified by $(\hat{b}-b_{A})/b_{A}=O_{p}(n^{-2/7})+O_{p}(n^{-1/2})$.
 
 The plug-in estimator of the bandwidth has much lower variability than Cross- Validation for a broad variety of situations, including nonsmooth functions \citep{Gasser1991,Feng2004}.
 
-\section{Semi-APARCH model}
-\subsection{Definition of Semi-APARCH model}
+\section{The Semi-APARCH model}
+\subsection{Definition of the Semi-APARCH model}
 
 In the Semi-GARCH model, model \ref{equ3.4} is a special case of the model \ref{equ3.5}; and model \ref{equ3.5} can be also written as $r_t= \sigma(x_t)\varepsilon_t$ for  $ r_{t}=Y_{t}-\mu$. Now the conditional heteroskedasticity and the scale change can be modeled at the same time.
 

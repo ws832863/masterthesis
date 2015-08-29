@@ -1,4 +1,4 @@
-\chapter{Parametric models}\label{secGarchmodel}
+\chapter{Parametric volatility models}\label{secGarchmodel}
 It is known that, volatility clustering exists in financial time series, and the distribution of random variables appears the fat tails. Mandelbrot observed the pattern of thick tails or fat tails of stock returns fluctuation, which was not consistent with the traditional assumption of normal distribution, by study the stock return index \citep{Mandelbrot1963}. 
 Fama suggested that the financial market returns had the property of volatility clustering. It means that volatility is not only dynamic but also clustered, which appears strong in one certain period but weak in another period. The reasons for these phenomena could be traced back to speculation, political changes, government monetary and fiscal policy, and etc. \citep{EugeneF.Fama1965}. ``Volatility clustering'' and ``fat tails'' cannot be explained by the traditional economic models, which assume the variance is constant, until the Autoregressive Conditional Heteroscedasticity (ARCH) model was introduced by Engle in 1982 \citep{Bollerslev1992}.
 
@@ -30,15 +30,15 @@ From the equation \ref{equ2.2} we can see that, GARCH model contains the lagged 
 
 In the paper from Engle, the stationary of GARCH model is introduced. As it is known, a process $\lbrace X_{t} \rbrace$  is weakly stationary,  if $i) E(X_{t}^{2}) < \infty$  for all  $t \in T$ ,$ ii) E(X_{t})$  and $cov(X_t,X_{t+s})$  are independent of $t$ for $s \in Z, t \in T$ \citep{Bougerol1992}. So the GARCH $(p,q)$ process with $E\left( \varepsilon_t \right) =0, Var(\varepsilon_t) = \omega(1-  \sum_{i=1}^p\alpha_i - \sum_{j=1}^q\beta_j )^{-1}$ and $cov(Y_t,Y_s)=0$ for $t \neq s$ is wide-sense stationary if and only if $\sum_{i=1}^p\alpha_i + \sum_{j=1}^q\beta_j < 1 $ \citep{Bollerslev1986}.
 
-\subsection{Estimation of GARCH model}
+\subsection{Estimation of the GARCH model}
 
-There are many methods to estimate the GARCH model, such as the Maximum Likelihood Estimation (MLE), the Quaxi-Maximum Likelihood Estimation (QMLE) and the Least Absolute Deviation Estimation (LADE), etc. Usually, the maximum likelihood estimation, which is introduced in this work, is most widely used. Besides the condition of stationary, to estimate GARCH model, a very important assumption is finite fourth order moment, which ensures the existence of the squared returns variance. Assuming GARCH model is a normal process:
+There are many methods to estimate the GARCH model, such as the Maximum Likelihood Estimation (MLE), the Quaxi-Maximum Likelihood Estimation (QMLE) and the Least Absolute Deviation Estimation (LADE), etc. Usually, the maximum likelihood estimation, which is introduced in this work, is most widely used. Besides the condition of stationary, to estimate the GARCH model a very important assumption is needed that the moment fourth order of this model exists. The conditions under which this moment exists are usually very complex and will not be discussed in this thesis. In the special cases, when the model is a normal GARCH (1,1) model,
  
 \begin{equation}
 E(\varepsilon_t^4)=\frac{3\omega^2(1+\alpha_1+\beta_1)}{(1-\alpha_1-\beta_1)(1-\beta_1^2-2\alpha_1\beta_1-3\alpha_1^2)}_.
 \end{equation}
 
-Under this condition, $E(\varepsilon_t^4)<\infty$ if and only if $3\alpha_1^2+2\alpha_1\beta_1+\beta_1^2<1$ for GARCH(1,1) model \citep{Milhj2012}.  
+This condition is $3\alpha_1^2+2\alpha_1\beta_1+\beta_1^2<1$ \citep{Milhj2012}.  
 
 Letting  $\theta=(\omega, \alpha_1, ..., \alpha_p,\beta_1,..., \beta_q)$, the conditional Gaussian log-likelihood function is defined as follows:
 
@@ -94,7 +94,7 @@ When $\delta=1,\gamma_{i}=0$, the APARCH model transforms into the TS-GARCH mode
 \[h_{t}^{1/2} = \omega + \sum_{i=1}^{p}\alpha_{i}|\varepsilon_{t-i}|+\sum_{j=1}^{q}\beta_{j}h_{t-j}^{1/2}\]
 
 with the covariance stationary condition for  $\varepsilon_{t}$ as  $\sqrt{\frac{2}{\pi}} \sum_{i=1}^{p}\alpha_{i} + \sum_{j=1}^{\alpha}\beta_{j}<1$
-\citep{Schwert1990};\citep{stephen1986modelling}.
+\citep{Schwert1990,stephen1986modelling}.
 
 When $\delta=1,\gamma_{i}\neq0$, a asymmetric Taylor/Schwert model is obtained, which is named as the TGARCH (threshold GARCH) model
 
