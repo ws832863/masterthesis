@@ -117,7 +117,7 @@ Define the estimation errors by $\lambda_{-t}=(x_{t},b)=\hat{r}_{t}-\hat{v}^{-t}
 \begin{equation}
 CV(b) = \sum_{t=1+t_{0}}^{n-t_{0}}\lambda_{-t}^{2}(x_{t},b)=\sum_{t=1+t_{0}}^{n-t_{0}}[\hat{r}_{t}-\hat{v}^{-t}(x_{t})]^{2},
 \end{equation}
-where $\hat{v}^{-t}(x_t)=\sum_{j=1,j\neq t}^{n}\frac{K(\frac{x_{j}-x_{t}}{b})\hat{r}_{j}}{\sum_{j=1,j \neq t}^{n}K(\frac{x_{j}-x_{t}}{b})}$ is the “leave-one-out’’ estimator of $v(x_{t})$.
+where $\hat{v}^{-t}(x_t)=\sum_{j=1,j\neq t}^{n}\frac{K(\frac{x_{j}-x_{t}}{b})\hat{r}_{j}}{\sum_{j=1,j \neq t}^{n}K(\frac{x_{j}-x_{t}}{b})}$ is the ``leave-one-out'' estimator of $v(x_{t})$.
 
 Letting $0<h_{min}<h_{max}<1, \bigtriangleup h=(h_{max}-h_{min})/m$, where m is an integer. Then the optimal bandwidth can be obtained by calculating the value of CV at $h=h_{min}, h=h_{min} + \bigtriangleup h, h=h_{min} + 2\bigtriangleup h, \ldots, h=h_{max}$. The optimal bandwidth is the one, at which CV(b) is minimized \citep{Sarda1993}.
 
@@ -191,7 +191,7 @@ In this case, the local linear regression is applied. The mean idea of this regr
 Then $\hat{\alpha}_0(x_0)$, $\hat{\alpha}_1(x_0)$, $\hat{\alpha}_2(x_0)$,..., $\hat{\alpha}_p(x_0)$ can be obtained by minimizing the locally weighted least squares 
 \[Q(x_0)= \sum_{i=1}^n[r_i-\alpha_0(x_0)-\alpha_1(x_0)(x_i-x_0)-\alpha_2(x_0)(x_i-x_0)^2-...-\alpha_p(x_0)(x_i-x_0)^p]^2K(\frac{x_i-x_0}{b})\]
 
-with a kernel $K(u)$. An estimator of $v^{(t)}(x_0)$ can be written as $\hat{v}^{(t)}(x_0)=t!\hat{\alpha_t}(x_0)$ for $t\leq p$ by Taylor’s formula (Fan 1993). Then the asymptotic bias and variance are defined by
+with a kernel $K(u)$. An estimator of $v^{(t)}(x_0)$ can be written as $\hat{v}^{(t)}(x_0)=t!\hat{\alpha_t}(x_0)$ for $t\leq p$ by Taylor's formula (Fan 1993). Then the asymptotic bias and variance are defined by
 \[E [ \hat {v}^{(t)}(x_0)-v^{(t)}(x_0)]\approx b^{(k-t)}\frac{v^{(t)}(x_0)\beta}{k!}\]
 and
 \[var[\hat{{v}^(t)(x_0)}]= \frac{nb^{1+2t}}{h},\]
