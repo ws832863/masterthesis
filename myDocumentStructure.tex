@@ -39,13 +39,19 @@
 	%else: do nothing
 }
 
+
+\printglossary[type=\acronymtype,title=Abbreviations]
+
+
 %\setcounter{secnumdepth}{4} % create section numbers up to level 4, e.g.: 3.2.5.4, usually not necessary
 
 %######################## Chapter 1 ######################################################
 \cleardoublepage
 \pagenumbering{arabic} % use arabic page numbers again
 
+
 \input{Abstract/Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 
 \input{Introduction/Introduction}
 
@@ -84,13 +90,12 @@
 
 %######################## Appendix #########################################################
 %\clearemptydoublepage
-\appendix
+%\appendix
 \addtocontents{toc}{\vspace{2mm}}
 %\addcontentsline{toc}{chapter}{Appendix}
-\addtocontents{toc}{\protect\contentsline {chapter}{Appendix}{}{appendix.A}}
+%\addtocontents{toc}{\protect\contentsline {chapter}{Appendix}{}{appendix.A}}
 %\addtocontents{toc}{\vspace{-4mm}}
 %\input{Appendix/Appendix}
-
 %######################## Remainder ######################################################
 
 %--- bibliography -----------------------------------------------------------------------
