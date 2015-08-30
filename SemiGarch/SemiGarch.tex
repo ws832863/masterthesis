@@ -7,9 +7,9 @@ Gourieroux and Monfort had firstly inserted the conditional mean and conditional
 
 Semi-parametric volatility model consists of not only the nonparametric part but also parametric part. Semi-GARCH model selects the nonparametric form for the scale function and the parametric part for conditional variance lags. Then it does not need a pre-specified function form and is less sensitive to model misspecification. At the same time, the parametric part can also explain the models \citep{Di2011}.
 
-\section{Semi-GARCH model}
+\section{The Semi-GARCH model}
 
-\subsection{Definition of Semi-GARCH model}
+\subsection{Definition of the Semi-GARCH model}
 
 The Semi-GARCH model combines a smooth scale function with the standard GARCH model:
 
@@ -69,7 +69,7 @@ Then the estimator of parametric vector $\theta$ can be obtained by the standard
 
 
 
-\subsection{ Asymptotic properties of $\hat{v}$}
+\subsection{Asymptotic properties of $\hat{v}$}
 To calculate the asympototic optimal bandwidth, several assumptions must be made:
  \begin{enumerate}
   \item $E(\varepsilon_{t}^{8})<\infty$ ensures the process strictly stationary, and $\eta \sim N(0,1)$ \citep{Ling2002}.
@@ -180,7 +180,7 @@ where $\omega>0$, $\delta\geq0$, $\alpha_{i}\geq0$, $i=1, \ldots, p$, $-1<\gamma
 
 The reason to use Semi-APARCH model rather than the APARCH is that, if the scale function changes over time, the parametric component cannot be estimate consistently from the data, when the non-stationary scale function is not estimated. However, after estimating the nonstationary scale function an approximate stationary process for further analysis can be obtained. When the process follows a parametric model, the semi-parametric framework still works but with some loss of the efficiency \citep{FengYuanhua;Sun2013}.
 
-\subsection{ Estimation of the Semi-APARCH model}
+\subsection{Estimation of the Semi-APARCH model}
 
 From the discussion of kernel regression in section \ref{subsec3.1.2} we can see that, in order to get exact estimation, the sample volume should be larger enough, $n\longrightarrow\infty$. Then $b\longrightarrow0$ and $nb\longrightarrow\infty$. However, the bias is of the order $b^2$. Therefore, the estimation at the boundary has large bias, which may result in a larger selected bandwidth. This is the so-called “boundary problem” \citep{Eubank1993}.
 
@@ -213,7 +213,7 @@ The estimation of $v(x)$ can be obtained by
 
 Then the estimation of $\varepsilon_t$ can defined as $\hat{\varepsilon}_t=r_t/\hat{v}(x_t)$. The unknown parameters of a chosen APARCH model can be estimated by approximate conditional maximal likelihood method. AIC or BIC can be used to select a suitable model \citep{FengYuanhua;Sun2013}.
 
-\section{Semi-EGARCH and Semi-CGARCH models}
+\section{The Semi-EGARCH and Semi-CGARCH models}
 Based on the Semi-GARCH and Semi-APARCH models above, the Semi-EGARCH and Semi-CGARCH models can be defined, which are not introduced in other literatures yet.
 
 The general definition of the Semi-EGARCH and Semi-CGARCH models, the same as the Semi-APARCH model, is composed of the scale function and the conditional heteroscedasticity:
