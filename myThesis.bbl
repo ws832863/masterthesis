@@ -5,6 +5,12 @@ Altman, N. and L\'{e}ger, C. (1995).
 \newblock {Bandwidth selection for kernel distribution function estimation}.
 \newblock {\em Journal of Statistical Planning and Inference}, 46(2):195--214.
 
+\bibitem[Beran and Ocker, 2001]{beran2001volatility}
+Beran, J. and Ocker, D. (2001).
+\newblock Volatility of stock-market indexes---an analysis based on semifar
+  models.
+\newblock {\em Journal of Business \&amp; Economic Statistics}, 19(1):103--116.
+
 \bibitem[Bollerslev, 1986]{Bollerslev1986}
 Bollerslev, T. (1986).
 \newblock {Generalized Autoregressive Conditional Heteroskedasticity}.
