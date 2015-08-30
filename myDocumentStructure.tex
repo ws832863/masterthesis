@@ -40,18 +40,24 @@
 }
 
 
-\printglossary[type=\acronymtype,title=Abbreviations]
+%\makeglossaries
 
 
 %\setcounter{secnumdepth}{4} % create section numbers up to level 4, e.g.: 3.2.5.4, usually not necessary
 
 %######################## Chapter 1 ######################################################
 \cleardoublepage
+
+
 \pagenumbering{arabic} % use arabic page numbers again
 
 
+\clearemptydoublepage
 \input{Abstract/Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
+
+
+\clearemptydoublepage
 
 \input{Introduction/Introduction}
 
@@ -60,21 +66,21 @@
 %\input{Fundamentals/Fundamentals}
 
 %######################## Chapter 2 ######################################################
-%\clearemptydoublepage
+\clearemptydoublepage
 \input{GarchModel/GarchModel}
 
 %######################## Chapter 3 ######################################################
-%\clearemptydoublepage
+\clearemptydoublepage
 \input{SemiGarch/SemiGarch}
 
 
 %######################## Chapter 4 ######################################################
-%\clearemptydoublepage
+\clearemptydoublepage
 \input{Application/Application}
 
 
 %######################## Chapter 5 ######################################################
-%\clearemptydoublepage
+\clearemptydoublepage
 \input{Conclusion/Conclusion}
 
 

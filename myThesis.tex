@@ -34,13 +34,7 @@
 %\floatname{sourcecode}{Code-Fragment}
 %\newfloat{sourcecode}{htbp}{loc}[chapter] % neue Gleitumgebung für Quellcode
 \usepackage{longtable}
-\usepackage[acronym]{glossaries}
-% abbreviations:
-\newacronym{ny}{NY}{New York}
-\newacronym{la}{LA}{Los Angeles}
-\newacronym{un}{UN}{United Nations}
 
-\makeglossaries
 
 
 \input{MathDefinitions} % einige mathematische Hilfskonstrukte und Vereinfachungen
@@ -93,5 +87,18 @@
   						]{hyperref}
   \DeclareGraphicsExtensions{.eps,.ps} % Dateiendungen für Grafikdateien
 }
+
+
+
+
+\usepackage[acronym]{glossaries}
+% abbreviations:
+\newacronym{ny}{NY}{New York}
+\newacronym{la}{LA}{Los Angeles}
+\newacronym{un}{UN}{United Nations}
+
+\makeglossaries
+
+
 
 \input{DocumentStructure} % der eigentliche Inhalt und die Struktur der Arbeit

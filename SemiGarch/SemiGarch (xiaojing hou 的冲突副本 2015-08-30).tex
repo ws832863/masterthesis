@@ -197,7 +197,7 @@ and
 
 respectively, where $\beta\neq0$ is a constant. The bias at the boundary stays automatically of the same order as in the interior, without using of specific boundary kernels. This method can solve the boundary problem partly \citep{fan1997}.
 
-There is also another difference between the kernel regression and this case. The scale function $v(x)$ is estimated from $|r_t|^d$ with d=1, instead of taking the square root of $\hat{•v}^2(x)$, which is estimated from $r_t^2$. The reason of setting d=1 is the weak moment condition. The estimation of the scale function with d=1 requires just existence of the fourth order moment of $\varepsilon_{t}$. However, the scale function estimated from $|r_t|$ is an estimation of another function $g(x)$ rather than $v(x)$. Letting $c_1=E(|\varepsilon_{t}|)\neq 1$, we have $g(x)=c_1v(x)$ and $v(x)=g(x)/c_1$. Then the local linear estimation is used to estimate the scale function.
+There is also another difference between the kernel regression and this case. The scale function $v(x)$ is estimated from $|r_t|^d$ with d=1, instead of taking the square root of $\hat{•v}^2(x)$ , which is estimated from $r_t^2$ . The reason of setting d=1 is that ensuring the existence of the fourth order moment of $\varepsilon_{t}$. However, the scale function estimated from $|r_t|$ is an estimation of another function $g(x)$ rather than $v(x)$. Letting $c_1=E(|\varepsilon_{t}|)\neq 1$ , we have $g(x)=c_1v(x)$ and $v(x)=g(x)/c_1$. Then the local linear estimation is used to estimate the scale function.
 
 The local linear estimator $\hat{g}(x)=\hat{a}_0$ at $0\leq x \leq 1$ can be obtained by minimizing
 
@@ -205,33 +205,33 @@ The local linear estimator $\hat{g}(x)=\hat{a}_0$ at $0\leq x \leq 1$ can be obt
 Q=\sum_{t=1}^{n}[|r_t|-a_0-a_1(x_t-x)]^2K(\frac{x_t-x}{b}).
 \end{equation}
 
-The optimal bandwidth for estimating $g(x)$ is different from the one for estimating $v^2(x)$. In this method a fully data-driven algorithm is used, which is the adapted iterative plug-in idea with a starting bandwidth selected by the cross-validation method. When sample size is small and a small bandwidth is selected, the local linear estimator may lead to negative results. To ensure the non-negativity, the final estimator $\hat{g}_f(x)$ is assumed to be $\hat{g}_f(x)=|\hat{g}(x,d)|$. Letting $\hat{\varepsilon}_{1,t}=r_t/\hat{g}_f(x)\approx c^{-1}\hat{\varepsilon}$ and assuming $E(\varepsilon_t^4)$ is finite, then the consistent estimate of is
+The optimal bandwidth for estimating $g(x)$ is different from the one for estimating $v^2(x)$. In this method a fully data-driven algorithm is used, which is the adapted iterative plug-in idea with a starting bandwidth selected by the cross-validation method. When sample size is small and a small bandwidth is selected, the local linear estimator may lead to negative results. To ensure the non-negativity, the final estimator $\hat{g}_f(x)$ is assumed to be $\hat{g}_f(x)=|\hat{g}(x,d)|$ . Letting $\hat{\varepsilon}_{1,t}=r_t/\hat{g}_f(x)\approx c^{-1}\hat{\varepsilon}$ and assuming $E(\varepsilon_t^4)$ is finite, then the consistent estimate of is
 \[\hat{c}_1=[\frac{1}{n}\sum_{t=1}^n\hat{\varepsilon}_{1,t}^2]^{-1/2}.\]
 
-The estimation of $v(x)$ can be obtained by
+the estimation of $v(x)$ can be obtained by
 \[\hat{v}(x_t)=\hat{c}_1^{-1}\hat{g}_f(x_t).\]
 
-Then the estimation of $\varepsilon_t$ can defined as $\hat{\varepsilon}_t=r_t/\hat{v}(x_t)$. The unknown parameters of a chosen APARCH model can be estimated by approximate conditional maximal likelihood method. AIC or BIC can be used to select a suitable model \citep{FengYuanhua;Sun2013}.
+Then the estimation of $\varepsilon_t$ can defined as $\hat{\varepsilon}_t=r_t/\hat{v}(x_t)$ . The unknown parameters of a chosen APARCH model can be estimated by approximate conditional maximal likelihood method. AIC or BIC can be used to select a suitable model \citep{FengYuanhua;Sun2013}.
 
 \section{Semi-EGARCH and Semi-CGARCH models}
-Based on the Semi-GARCH and Semi-APARCH models above, the Semi-EGARCH and Semi-CGARCH models can be defined, which are not introduced in other literatures yet.
+Based on the semi-parametric GARCH and APARCH models above, the semi-parametric EGARCH and CGARCH models can be defined, which are not introduced in other literatures yet.
 
-The general definition of the Semi-EGARCH and Semi-CGARCH models, the same as the Semi-APARCH model, is composed of the scale function and the conditional heteroscedasticity:
+The general definition of the semi-EGARCH and semi-CGARCH models, the same as the semi-APARCH model, is composed of the scale function and the conditional heteroscedasticity:
 
 \begin{equation}
 r_{t} = \sigma(x_{t})\varepsilon_{t},
 \end{equation}
 where $r$ is the return process; $\sigma(x_{t})>0$ is the scale function; $x_{t}$ are the rescaled times; and $\varepsilon_{t}$ are the standard residuals with the zero mean and unit variance. 
 
-Different from the Semi-APARCH model, in the Semi-EGARCH model the conditional variance of  follows the EGARCH model, which was introduced by Nelson in 1991:
+Different from the semi-APARCH model, the conditional variance of  follows the parametric exponential GARCH model, which was introduced by Nelson in 1991:
 
 \begin{equation}
 ln(h_t) =\omega + \sum_{i=1}^p(\alpha_i\eta_{t-i}+\gamma(|\eta_{t-i}|-E|\eta_{t-i}|))+\sum_{j=1}^q\beta_jln(h_{t-j}).
 \end{equation}
 
-The assumptions of this parametric component approximate to the EGARCH model \citep{Nelson1991}.
+The assumptions of this parametric component approximate to the parametric exponential GARCH model.
 
-For Semi-CGARCH model, the general definition is also the same as the equation (3.17). However, the conditional variance $h_t$ is assumed to follow the CGARCH model, which is introduced by Engle and Lee in 1999:
+For semi-CGARCH model, the general definition is also the same as the equation (3.17). However, the conditional variance $h_t$ is assumed to follow the parametric component GARCH model, which is introduced by Engle and Lee in 1999:
 
 \begin{equation}
 h_{t}=q_{t}+\sum_{i=1}^{p}\alpha_{i}(\varepsilon_{t-i}^{2}-q_{t-i}) + \sum_{j=1}^{q}\beta_{j}(h_{t-j}-q_{t-j}),

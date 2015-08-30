@@ -10,12 +10,12 @@
 \BOOKMARK [0][-]{chapter.3}{3 Semi-parametric volatility models}{}% 10
 \BOOKMARK [1][-]{section.3.1}{3.1 Semi-GARCH model}{chapter.3}% 11
 \BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Definition of Semi-GARCH model}{section.3.1}% 12
-\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Estimation of Semi-GARCH model}{section.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Estimation of the Semi-GARCH model}{section.3.1}% 13
 \BOOKMARK [2][-]{subsection.3.1.3}{3.1.3 Asymptotic properties of }{section.3.1}% 14
 \BOOKMARK [2][-]{subsection.3.1.4}{3.1.4 The selection of the bandwidth}{section.3.1}% 15
 \BOOKMARK [1][-]{section.3.2}{3.2 The Semi-APARCH model}{chapter.3}% 16
 \BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Definition of the Semi-APARCH model}{section.3.2}% 17
-\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Estimation of the semi-parametric APARCH model}{section.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Estimation of the Semi-APARCH model}{section.3.2}% 18
 \BOOKMARK [1][-]{section.3.3}{3.3 Semi-EGARCH and Semi-CGARCH models}{chapter.3}% 19
 \BOOKMARK [0][-]{chapter.4}{4 Empirical Example}{}% 20
 \BOOKMARK [1][-]{section.4.1}{4.1 Data and Methodology}{chapter.4}% 21
